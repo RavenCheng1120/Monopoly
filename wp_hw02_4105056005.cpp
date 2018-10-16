@@ -1,9 +1,4 @@
-/********
-4105056005 ¾G¸a®x ²Ä¤G¦¸§@·~10/24
-4105056005 Yun-Ting Cheng The Second Homework 10/24
-********/
-
-// wp_hw02_4105056005.cpp: ¥D­n±M®×ÀÉ¡C
+// wp_hw02_4105056005.cpp: ä¸»è¦å°ˆæ¡ˆæª”ã€‚
 
 #include "stdafx.h"
 #include <time.h>
@@ -13,23 +8,23 @@
 using namespace System;
 using namespace System::IO;
 
-//³]©w¦U¦a»ù¿ú¥B0´É©Ğ¤l
+//è¨­å®šå„åœ°åƒ¹éŒ¢ä¸”0æ£Ÿæˆ¿å­
 void initialLocation(array<int>^ plocaMon, array<int>^ phouses, array<int>^ pnoTax, int^ pround, array<int>^ alive, array<int>^ owner, array<int>^ pposition) {
-	plocaMon[0] = 0;	plocaMon[1] = 100;	plocaMon[2] = 60;
-	plocaMon[3] = 140;	plocaMon[4] = 80;	plocaMon[5] = 110;
+	plocaMon[0] = 0;	plocaMon[1] = 90;	plocaMon[2] = 60;
+	plocaMon[3] = 120;	plocaMon[4] = 80;	plocaMon[5] = 100;
 	plocaMon[6] = 0;	plocaMon[7] = 100;	plocaMon[8] = 150;
-	plocaMon[9] = 160;	plocaMon[10] = 200;	plocaMon[11] = 200;
-	plocaMon[12] = 150;	plocaMon[13] = 250;	plocaMon[14] = 180;
-	plocaMon[15] = 420;	plocaMon[16] = 170;	plocaMon[17] = 0;
+	plocaMon[9] = 160;	plocaMon[10] = 200;	plocaMon[11] = 190;
+	plocaMon[12] = 150;	plocaMon[13] = 220;	plocaMon[14] = 170;
+	plocaMon[15] = 400;	plocaMon[16] = 170;	plocaMon[17] = 0;
 	plocaMon[18] = 220;	plocaMon[19] = 250;	plocaMon[20] = 160;
 	plocaMon[21] = 200;	plocaMon[22] = 180;	plocaMon[23] = 230;
-	plocaMon[24] = 300;	plocaMon[25] = 200;	plocaMon[26] = 350;
-	plocaMon[27] = 320;	plocaMon[28] = 160;	plocaMon[29] = 380;
+	plocaMon[24] = 250;	plocaMon[25] = 200;	plocaMon[26] = 300;
+	plocaMon[27] = 320;	plocaMon[28] = 160;	plocaMon[29] = 320;
 
 	int^ pi = gcnew int;
 	for (*pi = 0; *pi < 30; (*pi)++) {
 		phouses[*pi] = 0;
-		owner[*pi] = 0;//0¥NªíµL¤H¾Ö¦³¦¹¶ô¦a
+		owner[*pi] = 0;//0ä»£è¡¨ç„¡äººæ“æœ‰æ­¤å¡Šåœ°
 	}
 
 	pnoTax[0] = 0;
@@ -51,37 +46,38 @@ void initialLocation(array<int>^ plocaMon, array<int>^ phouses, array<int>^ pnoT
 	return;
 }
 
-//¦L¥X³W«h
+//å°å‡ºè¦å‰‡
 void startNewGame() {
-	Console::Write("{0,58}","-Åwªï¨Ó¨ì©_¤Û¥@¬É¤j´I¯Î-\n\n");
-	Console::Write("¹CÀ¸»¡©ú:\n    ¦¹¹CÀ¸¶}©lª÷ÃB«ØÄ³¬°1000¤¸¡A¨C¦¸¸g¹L°_ÂI±NÀò±o300¤¸¡C\n");
-	Console::Write("    ¨C¦¸¦æ°Ê¥i¿ï¾ÜÂY»ë¤l(d)©Î¬O­«·s¶}©l¾ã­Ó¹CÀ¸(r)¡C¥i¥H¦sÀÉ¡BÅªÀÉ»P§R°£©Ò¦³¬ö¿ıÀÉ¡C\n");
-	Console::Write("    ½ò¤W¤g¦a¤è¶ô®É¡A¥i¥H¨M©w¬O§_ÁÊ¶R©Ğ¤l¡A©Î¬OÄ~Äò¤É¯Å©Ğ«Î¡A¤@¶ô¤g¦a³Ì¦h¤É¨ì5¯Å©Ğ¤l¡C­Y¤g¦a¤w¦³¸Óª±®a»\ªº©Ğ¤l¡A«h¥i¦¬¨ú«OÅ@¶O¡C¯¸¨ì¨ä¥Lª±®aªº¤g¦a¤W¡A«h·|³Q¦¬¨ú¹L¸ô¶O¡C\n");
-	Console::Write("    ½ò¨ì¾÷·|¤Î©R¹B¤è¶ô¡A¨t²Î±N¦Û°Ê©âµP¡A¨Ã°õ¦æµP¤Wªº«ü¥O¡C\n");
-	Console::Write("    ½ò¨ì©âµ|¤è¶ô¡Aª±®a±N´î¤Ö200¤¸¡C­Y¾Ö¦³°kµ|¥dµP±N·|¦Û°Ê¨Ï¥Î¡C\n");
-	Console::Write("    ¦sÀÉ³£¦b¦P¤@­ÓÀÉ®×Save.txt¡AÅªÀÉ¤]¬O±qSave.txtÅª¨ú¡A­Y§Ë¶Ã¤å¦rªº®æ¦¡·|³y¦¨ÅªÀÉ¿ù»~¡C¥i¿ï¾Ü¥ô¦ó¦sÀÉ¬ö¿ı¡C\n\n");
+	Console::Write("{0,58}","-æ­¡è¿ä¾†åˆ°å¥‡å¹»ä¸–ç•Œå¤§å¯Œç¿-\n\n");
+	Console::Write("éŠæˆ²èªªæ˜:\n    æ­¤éŠæˆ²é–‹å§‹é‡‘é¡å»ºè­°ç‚º1500å…ƒï¼Œæ¯æ¬¡ç¶“éèµ·é»å°‡ç²å¾—300å…ƒã€‚\n");
+	Console::Write("    æ¯æ¬¡è¡Œå‹•å¯é¸æ“‡æ“²éª°å­(d)æˆ–æ˜¯é‡æ–°é–‹å§‹æ•´å€‹éŠæˆ²(r)ã€‚å¯ä»¥å­˜æª”ã€è®€æª”èˆ‡åˆªé™¤æ‰€æœ‰ç´€éŒ„æª”ã€‚\n");
+	Console::Write("    è¸©ä¸ŠåœŸåœ°æ–¹å¡Šæ™‚ï¼Œå¯ä»¥æ±ºå®šæ˜¯å¦è³¼è²·æˆ¿å­ï¼Œæˆ–æ˜¯ç¹¼çºŒå‡ç´šæˆ¿å±‹ï¼Œä¸€å¡ŠåœŸåœ°æœ€å¤šå‡åˆ°5ç´šæˆ¿å­ã€‚è‹¥åœŸåœ°å·²æœ‰è©²ç©å®¶è“‹çš„æˆ¿å­ï¼Œå‰‡å¯æ”¶å–ä¿è­·è²»ã€‚ç«™åˆ°å…¶ä»–ç©å®¶çš„åœŸåœ°ä¸Šï¼Œå‰‡æœƒè¢«æ”¶å–éè·¯è²»ã€‚\n");
+	Console::Write("    è¸©åˆ°æ©ŸæœƒåŠå‘½é‹æ–¹å¡Šï¼Œç³»çµ±å°‡è‡ªå‹•æŠ½ç‰Œï¼Œä¸¦åŸ·è¡Œç‰Œä¸Šçš„æŒ‡ä»¤ã€‚\n");
+	Console::Write("    è¸©åˆ°æŠ½ç¨…æ–¹å¡Šï¼Œç©å®¶å°‡æ¸›å°‘200å…ƒã€‚è‹¥æ“æœ‰é€ƒç¨…å¡ç‰Œå°‡æœƒè‡ªå‹•ä½¿ç”¨ã€‚\n");
+	Console::Write("    å­˜æª”éƒ½åœ¨åŒä¸€å€‹æª”æ¡ˆSave.txtï¼Œè®€æª”ä¹Ÿæ˜¯å¾Save.txtè®€å–ï¼Œè‹¥å¼„äº‚æ–‡å­—çš„æ ¼å¼æœƒé€ æˆè®€æª”éŒ¯èª¤ã€‚å¯é¸æ“‡ä»»ä½•å­˜æª”ç´€éŒ„ã€‚\n\n");
 	
-	Console::Write("¹CÀ¸­I´º:\n    ¦b¬Y­Ó©_¤Û¥@¬É¡A¯î¿¾ªº¤j¦a¤W¥Rº¡©Çª«»P¼É¤Oªº©~¥Á¡A¦Ó§A¬O¤@­Ó¨S¨SµL»D¦ı¥Rº¡³¥¤ßªº¤HÃş¡C\n");
-	Console::Write("    §A¦¹¥Íªº¹Ú·Q¡A´N¬O¦b³o¤ù¤g¦a¤W«Ø³y¦Û¤vªº¤ı°ê¡A¦ı§A¨Ã¤£¬O°ß¤@·Q­n²Îªv³o¥@¬Éªº¤H¡C\n");
-	Console::Write("    ¥Î§A¤â¤¤ªºª÷¹ô¡A«Ø³y¼s¤jªº´Ş¥Á¦a¡A¨ÃºÉ¤OÅı§Aªº¼Ä¤H¯}²£¡C³Ì²×¤f³U¸ÌÁÙ¦³ª÷¹ôªº¤H¡A´N¬OÄ¹®a...\n\n");
+	Console::Write("éŠæˆ²èƒŒæ™¯:\n    åœ¨æŸå€‹å¥‡å¹»ä¸–ç•Œï¼Œè’è•ªçš„å¤§åœ°ä¸Šå……æ»¿æ€ªç‰©èˆ‡æš´åŠ›çš„å±…æ°‘ï¼Œè€Œä½ æ˜¯ä¸€å€‹æ²’æ²’ç„¡èä½†å……æ»¿é‡å¿ƒçš„äººé¡ã€‚\n");
+	Console::Write("    ä½ æ­¤ç”Ÿçš„å¤¢æƒ³ï¼Œå°±æ˜¯åœ¨é€™ç‰‡åœŸåœ°ä¸Šå»ºé€ è‡ªå·±çš„ç‹åœ‹ï¼Œä½†ä½ ä¸¦ä¸æ˜¯å”¯ä¸€æƒ³è¦çµ±æ²»é€™ä¸–ç•Œçš„äººã€‚\n");
+	Console::Write("    ç”¨ä½ æ‰‹ä¸­çš„é‡‘å¹£ï¼Œå»ºé€ å»£å¤§çš„æ®–æ°‘åœ°ï¼Œä¸¦ç›¡åŠ›è®“ä½ çš„æ•µäººç ´ç”¢ã€‚æœ€çµ‚å£è¢‹è£¡é‚„æœ‰é‡‘å¹£çš„äººï¼Œå°±æ˜¯è´å®¶...\n\n");
 	return;
 }
 
-//¦L¥X¤j´I¯Î¦a¹Ï
-void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ plocaMon, array<int>^ owner, array<int>^ pposition, int^ people, array<int>^ alive) {
+//å°å‡ºå¤§å¯Œç¿åœ°åœ–
+void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ plocaMon, array<int>^ owner, array<int>^ pposition,
+	int^ people, array<int>^ alive) {
 	int^ pi = gcnew int;
 	int^ pj = gcnew int;
 	int^ pfront = gcnew int;
 	int^ pback = gcnew int;
 	*pfront = 0;
 	*pback = 29;
-	//¾î½u
+	//æ©«ç·š
 	for (*pi = 0; *pi < 120; (*pi)++) {
 		Console::Write(L'-');
 	}
-	//¦@9­Ó9x5¤p®æ¤l¡A¥ª¥k2­Ó13x5¤j®æ¤l
+	//å…±9å€‹9x5å°æ ¼å­ï¼Œå·¦å³2å€‹13x5å¤§æ ¼å­
 	for (*pj = 0; *pj < 4; (*pj)++) {
-		//¦L¥X©Ğ¤l
+		//å°å‡ºæˆ¿å­
 		if (*pj == 0) {
 			if (phouses[*pfront] > 0)
 				Console::Write("|    {0}'s house", owner[*pfront]);
@@ -101,7 +97,7 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 				Console::Write( "|             | ");
 			(*pfront)++;
 		}
-		//¦L¥X¦a¦W
+		//å°å‡ºåœ°å
 		else if (*pj == 1) {
 			*pfront = 0;
 			Console::Write("|{0,13}", plocations[*pfront]);
@@ -110,66 +106,82 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 				Console::Write("|{0,9}", plocations[*pfront]);
 				(*pfront)++;
 			}
-			Console::Write("|{0,13}| ", plocations[*pfront]);
+			Console::Write("|{0,9}    | ", plocations[*pfront]);
 			(*pfront)++;
 		}
-		//¦L¥Xª±®a¦ì¸m
+		//å°å‡ºæˆ¿åƒ¹
 		else if (*pj == 2) {
 			*pfront = 1;
+			Console::Write("|     èµ·é»    ");
+			for (*pi = 0; *pi < 9; (*pi)++) {
+				if (*pfront == 6) {
+					Console::Write("|   æ©Ÿæœƒ  ");
+					(*pfront)++;
+					continue;
+				}
+				Console::Write("|{0,7}å…ƒ", plocaMon[*pfront]);
+				(*pfront)++;
+			}
+			Console::Write("|   $$$$$$$   | ");
+			(*pfront)++;
+		}
+		//å°å‡ºç©å®¶ä½ç½®
+		else if (*pj == 3) {
+			*pfront = 1;
 			if (pposition[0] == (*pfront) - 1)
-				Console::Write("|¡¼");
+				Console::Write("|â–¡");
 			else
 				Console::Write("|  ");
 			if (pposition[1] == (*pfront) - 1 && alive[1] == 0)
-				Console::Write("¡½");
+				Console::Write("â– ");
 			else
 				Console::Write("  ");
 			if (pposition[2] == (*pfront) - 1 && *people > 2 && alive[2] == 0)
-				Console::Write("¡µ");
+				Console::Write("â–³");
 			else
 				Console::Write("  ");
 			if (pposition[3] == (*pfront) - 1 && *people > 3 && alive[3] == 0)
-				Console::Write("¡¶     ");
+				Console::Write("â–²     ");
 			else
 				Console::Write("       ");
 			for (*pi = 0; *pi < 9; (*pi)++) {
 				if (pposition[0] == *pfront)
-					Console::Write("|¡¼");
+					Console::Write("|â–¡");
 				else
 					Console::Write("|  ");
 				if (pposition[1] == *pfront && alive[1] == 0)
-					Console::Write("¡½");
+					Console::Write("â– ");
 				else
 					Console::Write("  ");
 				if (pposition[2] == *pfront && *people > 2 && alive[2] == 0)
-					Console::Write("¡µ");
+					Console::Write("â–³");
 				else
 					Console::Write("  ");
 				if (pposition[3] == *pfront && *people > 3 && alive[3] == 0)
-					Console::Write("¡¶ ");
+					Console::Write("â–² ");
 				else
 					Console::Write("   ");
 				(*pfront)++;
 			}
 			if (pposition[0] == *pfront)
-				Console::Write("|¡¼");
+				Console::Write("|â–¡");
 			else
 				Console::Write("|  ");
 			if (pposition[1] == *pfront && alive[1] == 0)
-				Console::Write("¡½");
+				Console::Write("â– ");
 			else
 				Console::Write("  ");
 			if (pposition[2] == *pfront && *people > 2 && alive[2] == 0)
-				Console::Write("¡µ");
+				Console::Write("â–³");
 			else
 				Console::Write("  ");
 			if (pposition[3] == *pfront && *people > 3 && alive[3] == 0)
-				Console::Write("¡¶     | ");
+				Console::Write("â–²     | ");
 			else
 				Console::Write("       | ");
 			(*pfront)++;
 		}
-		//¨S¦³¤å¦rªº¦æ
+		//æ²’æœ‰æ–‡å­—çš„è¡Œ
 		else {
 			Console::Write("|             ");
 			for (*pi = 0; *pi < 9; (*pi)++)
@@ -177,63 +189,75 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 			Console::Write("|             | ");
 		}
 	}
-	//¾î½u
+	//æ©«ç·š
 	for (*pi = 0; *pi < 120; (*pi)++) {
 		Console::Write(L'-');
 	}
-	//¥ª¥k2­Ó13x4¤j®æ¤l¡A¤T±Æ
+	//å·¦å³2å€‹13x4å¤§æ ¼å­ï¼Œä¸‰æ’
 	for (*pi = 0; *pi < 4; (*pi)++) {
-		for (*pj = 0; *pj < 3; (*pj)++) {
-			//¦L¥X©Ğ«Î
+		for (*pj = 0; *pj < 4; (*pj)++) {
+			//å°å‡ºæˆ¿å±‹
 			if (*pj == 0) {
-				if (phouses[*pback] > 0)
+				if (phouses[*pback] > 0 && *pi == 0)
+					Console::Write("|    {0}'s house|       â–¡:1th player        â– :2th player    ", owner[*pback]);
+				else if(*pi == 0)
+					Console::Write("|             |       â–¡:1th player        â– :2th player    ");
+				else if (phouses[*pback] > 0)
 					Console::Write("|    {0}'s house|                                             ", owner[*pback]);
 				else
 					Console::Write("|             |                                             ");
-				if (phouses[*pfront] > 0)
+				if (phouses[*pfront] > 0 && *pi == 0)
+					Console::Write("   â–³:3th player       â–²:4th player        |    {0}'s house| ", owner[*pfront]);
+				else if (*pi == 0)
+					Console::Write("   â–³:3th player       â–²:4th player        |             | ");
+				else if (phouses[*pfront] > 0)
 					Console::Write("                                            |    {0}'s house| ", owner[*pfront]);
 				else
 					Console::Write("                                            |             | ");
 			}
-			//¦L¥X¦a¦W
+			//å°å‡ºåœ°å
 			else if (*pj == 1) {
 				Console::Write("|{0,13}|                                             ", plocations[*pback]);
 				Console::Write("                                            |{0,13}| ", plocations[*pfront]);
 			}
-			//¦L¥Xª±®a¦ì¸m
 			else if (*pj == 2) {
-				//¥ªÃä®æ¤l
+				Console::Write("|{0,11}å…ƒ|                                             ", plocaMon[*pback]);
+				Console::Write("                                            |{0,11}å…ƒ| ", plocaMon[*pfront]);
+			}
+			//å°å‡ºç©å®¶ä½ç½®
+			else if (*pj == 3) {
+				//å·¦é‚Šæ ¼å­
 				if (pposition[0] == *pback)
-					Console::Write("|¡¼");
+					Console::Write("|â–¡");
 				else
 					Console::Write("|  ");
 				if (pposition[1] == *pback && alive[1] == 0)
-					Console::Write("¡½");
+					Console::Write("â– ");
 				else
 					Console::Write("  ");
 				if (pposition[2] == *pback && *people > 2 && alive[2] == 0)
-					Console::Write("¡µ");
+					Console::Write("â–³");
 				else
 					Console::Write("  ");
 				if (pposition[3] == *pback && *people > 3 && alive[3] == 0)
-					Console::Write("¡¶     |                                             ");
+					Console::Write("â–²     |                                             ");
 				else
 					Console::Write("       |                                             ");
-				//¥kÃä®æ¤l
+				//å³é‚Šæ ¼å­
 				if (pposition[0] == *pfront)
-					Console::Write("                                            |¡¼");
+					Console::Write("                                            |â–¡");
 				else
 					Console::Write("                                            |  ");
 				if (pposition[1] == *pfront && alive[1] == 0)
-					Console::Write("¡½");
+					Console::Write("â– ");
 				else
 					Console::Write("  ");
 				if (pposition[2] == *pfront && *people > 2 && alive[2] == 0)
-					Console::Write("¡µ");
+					Console::Write("â–³");
 				else
 					Console::Write("  ");
 				if (pposition[3] == *pfront && *people > 3 && alive[3] == 0)
-					Console::Write("¡¶     | ");
+					Console::Write("â–²     | ");
 				else
 					Console::Write("       | ");
 				(*pfront)++;
@@ -244,24 +268,19 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 				Console::Write("                                            |             | ");
 			}
 		}
-		if (*pi == 3) {
-			Console::Write("|             |       ¡¼:1th player      ¡½:2th player      ");
-			Console::Write("   ¡µ:3th player       ¡¶:4th player        |             | ");
-		}
-		else {
+		if (*pi != 3) {
 			Console::Write(L"--------------                                                  ");
 			Console::Write(L"                                        --------------- ");
 		}
-
 	}
-	//¾î½u
+	//æ©«ç·š
 	for (*pi = 0; *pi < 120; (*pi)++) {
 		Console::Write(L'-');
 	}
-	//¦@9­Ó9x5¤p®æ¤l¡A¥ª¥k2­Ó13x5¤j®æ¤l
+	//å…±9å€‹9x5å°æ ¼å­ï¼Œå·¦å³2å€‹13x5å¤§æ ¼å­
 	for (*pj = 0; *pj < 4; (*pj)++) {
-		//¦L¥X©Ğ¤l
-		if (*pj == 1) {
+		//å°å‡ºæˆ¿å­
+		if (*pj == 0) {
 			if (phouses[*pback] > 0)
 				Console::Write("|    {0}'s house", owner[*pback]);
 			else
@@ -280,10 +299,10 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 				Console::Write("|             | ");
 			(*pback)--;
 		}
-		//¦L¥X¦a¦W
-		else if (*pj == 2) {
+		//å°å‡ºåœ°å
+		else if (*pj == 1) {
 			*pback = 25;
-			Console::Write("|{0,13}", plocations[*pback]);
+			Console::Write("|{0,9}    ", plocations[*pback]);
 			(*pback)--;
 			for (*pi = 0; *pi < 9; (*pi)++) {
 				Console::Write("|{0,9}", plocations[*pback]);
@@ -292,64 +311,80 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 			Console::Write("|{0,13}| ", plocations[*pback]);
 			(*pback)--;
 		}
-		//¦L¥Xª±®a¦ì¸m
+		//å°å‡ºæˆ¿åƒ¹
+		else if (*pj == 2) {
+			*pback = 24;
+			Console::Write("|   $$$$$$$   ");
+			for (*pi = 0; *pi < 9; (*pi)++) {
+				if (*pi == 7) {
+					Console::Write("|   å‘½é‹  ");
+					(*pback)--;
+					continue;
+				}
+				Console::Write("|{0,7}å…ƒ", plocaMon[*pback]);
+				(*pback)--;
+			}
+			Console::Write("|{0,11}å…ƒ| ", plocaMon[*pback]);
+			(*pback)--;
+		}
+		//å°å‡ºç©å®¶ä½ç½®
 		else if (*pj == 3) {
 			*pback = 25;
 			if (pposition[0] == *pback)
-				Console::Write("|¡¼");
+				Console::Write("|â–¡");
 			else
 				Console::Write("|  ");
 			if (pposition[1] == *pback && alive[1] == 0)
-				Console::Write("¡½");
+				Console::Write("â– ");
 			else
 				Console::Write("  ");
 			if (pposition[2] == *pback && *people > 2 && alive[2] == 0)
-				Console::Write("¡µ");
+				Console::Write("â–³");
 			else
 				Console::Write("  ");
 			if (pposition[3] == *pback && *people > 3 && alive[3] == 0)
-				Console::Write("¡¶     ");
+				Console::Write("â–²     ");
 			else
 				Console::Write("       ");
 			(*pback)--;
 			for (*pi = 0; *pi < 9; (*pi)++) {
 				if (pposition[0] == *pback)
-					Console::Write("|¡¼");
+					Console::Write("|â–¡");
 				else
 					Console::Write("|  ");
 				if (pposition[1] == *pback && alive[1] == 0)
-					Console::Write("¡½");
+					Console::Write("â– ");
 				else
 					Console::Write("  ");
 				if (pposition[2] == *pback && *people > 2 && alive[2] == 0)
-					Console::Write("¡µ");
+					Console::Write("â–³");
 				else
 					Console::Write("  ");
 				if (pposition[3] == *pback && *people > 3 && alive[3] == 0)
-					Console::Write("¡¶ ");
+					Console::Write("â–² ");
 				else
 					Console::Write("   ");
 				(*pback)--;
 			}
 			if (pposition[0] == *pback)
-				Console::Write("|¡¼");
+				Console::Write("|â–¡");
 			else
 				Console::Write("|  ");
 			if (pposition[1] == *pback && alive[1] == 0)
-				Console::Write("¡½");
+				Console::Write("â– ");
 			else
 				Console::Write("  ");
 			if (pposition[2] == *pback && *people > 2 && alive[2] == 0)
-				Console::Write("¡µ");
+				Console::Write("â–³");
 			else
 				Console::Write("  ");
 			if (pposition[3] == *pback && *people > 3 && alive[3] == 0)
-				Console::Write("¡¶     | ");
+				Console::Write("â–²     | ");
 			else
 				Console::Write("       | ");
 			(*pback)--;
 		}
-		//¨S¦³¤å¦rªº¦æ
+		//æ²’æœ‰æ–‡å­—çš„è¡Œ
 		else {
 			Console::Write(L"|             ");
 			for (*pi = 0; *pi < 9; (*pi)++)
@@ -357,14 +392,14 @@ void printMap(array<String^>^ plocations, array<int>^ phouses, array<int>^ ploca
 			Console::Write(L"|             | ");
 		}
 	}
-	//¾î½u
+	//æ©«ç·š
 	for (*pi = 0; *pi < 120; (*pi)++) {
 		Console::Write(L'-');
 	}
 	return;
 }
 
-//¦sÀÉ
+//å­˜æª”
 void savetxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<int>^ pnoTax, array<int>^ owner, array<int>^ pposition,
 	array<int>^ phouses, array<int>^ plocaMon, array<int>^ alive) {
 	StreamWriter^ sf = gcnew StreamWriter("Save.txt", true);
@@ -389,47 +424,47 @@ void savetxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<
 		sf->Write(owner[*pi] + "/");
 	sf->WriteLine();
 	sf->Close();
-	Console::Write("¦sÀÉ¦¨¥\¡C(«ö¤UENTER)");
+	Console::Write("å­˜æª”æˆåŠŸã€‚(æŒ‰ä¸‹ENTER)");
 	String^ inputString = Console::ReadLine();
 	return;
 }
 
-//ÅªÀÉ
+//è®€æª”
 void loadtxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<int>^ pnoTax, array<int>^ owner, array<int>^ pposition,
 	array<int>^ phouses, array<int>^ plocaMon, array<int>^ alive) {
 	try
 	{
-		//Åıª±®a¿ï¾ÜÅª­ş­ÓÀÉ®×
+		//è®“ç©å®¶é¸æ“‡è®€å“ªå€‹æª”æ¡ˆ
 		StreamReader^ sl = File::OpenText("Save.txt");
 		String^ str;
-		int^ count = gcnew int;		//´X­Ó¬ö¿ı
-		int^ whichFile = gcnew int;	//¿ï¾Ü²Ä´X­Ó¬ö¿ı
+		int^ count = gcnew int;		//å¹¾å€‹ç´€éŒ„
+		int^ whichFile = gcnew int;	//é¸æ“‡ç¬¬å¹¾å€‹ç´€éŒ„
 		count = 0;
 		while ((str = sl->ReadLine()) != nullptr){
 			if (String::Compare(str, "Save File:") == 0)
 				(*count)++;
 		}
 		if (*count == 0) {
-			Console::Write("µL¥ô¦ó¦sÀÉ¬ö¿ı¡C\n");
+			Console::Write("ç„¡ä»»ä½•å­˜æª”ç´€éŒ„ã€‚\n");
 			return;
 		}
-		Console::Write("²{¦b¦³{0}­Ó°O¿ıÀÉ¡A½Ğ¿é¤J¼Æ¦r¿ï¾Ü­nÅªªº¬ö¿ıÀÉ¡A¼Æ¦r¶V¤j¬ö¿ı¶V·s: ", *count);
+		Console::Write("ç¾åœ¨æœ‰{0}å€‹è¨˜éŒ„æª”ï¼Œè«‹è¼¸å…¥æ•¸å­—é¸æ“‡è¦è®€çš„ç´€éŒ„æª”ï¼Œæ•¸å­—è¶Šå¤§ç´€éŒ„è¶Šæ–°: ", *count);
 		do {
 			String^ inputNum = Console::ReadLine();
 			*whichFile = Convert::ToInt32(inputNum);
 			if (*whichFile <= 0 || *whichFile > *count)
-				Console::Write("¿é¤J¿ù»~¡A½Ğ¿é¤J½d³ò¤ºªº¼Æ¦r:");
+				Console::Write("è¼¸å…¥éŒ¯èª¤ï¼Œè«‹è¼¸å…¥ç¯„åœå…§çš„æ•¸å­—:");
 			else
 				break;
 		} while (true);
-		Console::Write("¿ï¾Ü²Ä{0}­ÓÀÉ®×¡CÅª¨ú¤¤....\n", *whichFile);
+		Console::Write("é¸æ“‡ç¬¬{0}å€‹æª”æ¡ˆã€‚è®€å–ä¸­....\n", *whichFile);
 		sl->Close();
 
-		//­«·s¶}±ÒtextÀÉ¡AÅª¨ú¸ê®Æ
+		//é‡æ–°é–‹å•Ÿtextæª”ï¼Œè®€å–è³‡æ–™
 		sl = File::OpenText("Save.txt");
 		count = 0;
-		int^ lines = gcnew int; //¤@­Ó¬ö¿ı¦³¤Q¦æ¤å¦r¡A¤@¦æªÅ¥Õ
-		array<String^>^ words;	//¤À³Î¥y¤l
+		int^ lines = gcnew int; //ä¸€å€‹ç´€éŒ„æœ‰åè¡Œæ–‡å­—ï¼Œä¸€è¡Œç©ºç™½
+		array<String^>^ words;	//åˆ†å‰²å¥å­
 		*lines = 1;
 		while ((str = sl->ReadLine()) != nullptr) {
 			if (String::Compare(str, "Save File:") == 0)
@@ -439,51 +474,54 @@ void loadtxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<
 				words = str->Split(':');
 				switch (*lines)
 				{
-				case 2:		//²Ä¤G¦æ¬Oª±®a¦W¦r
+				case 2:		//ç¬¬äºŒè¡Œæ˜¯ç©å®¶åå­—
 					playerName[0] = words[1];
+					playerName[1] = "B-Rabbit";
+					playerName[2] = "ConnorRK800";
+					playerName[3] = "theodd1sout";
 					break;
-				case 3:		//²Ä¤T¦æ¬Oª±®a¼Æ¶q
+				case 3:		//ç¬¬ä¸‰è¡Œæ˜¯ç©å®¶æ•¸é‡
 					*people = Convert::ToInt32(words[1]);
 					break;
-				case 4:		//²Ä¥|¦æ¬O¦Uª±®aª÷¿ú
+				case 4:		//ç¬¬å››è¡Œæ˜¯å„ç©å®¶é‡‘éŒ¢
 					words = words[1]->Split('/');
 					pmoney[0] = Convert::ToInt32(words[0]);
 					pmoney[1] = Convert::ToInt32(words[1]);
 					pmoney[2] = Convert::ToInt32(words[2]);
 					pmoney[3] = Convert::ToInt32(words[3]);
 					break;
-				case 5:		//²Ä¤­¦æ¬O¦Uª±®a¦aÂI
+				case 5:		//ç¬¬äº”è¡Œæ˜¯å„ç©å®¶åœ°é»
 					words = words[1]->Split('/');
 					pposition[0] = Convert::ToInt32(words[0]);
 					pposition[1] = Convert::ToInt32(words[1]);
 					pposition[2] = Convert::ToInt32(words[2]);
 					pposition[3] = Convert::ToInt32(words[3]);
 					break;
-				case 6:		//²Ä¤»¦æ¬O¦Uª±®a¯S®í¥d¤ù¼Æ¶q
+				case 6:		//ç¬¬å…­è¡Œæ˜¯å„ç©å®¶ç‰¹æ®Šå¡ç‰‡æ•¸é‡
 					words = words[1]->Split('/');
 					pnoTax[0] = Convert::ToInt32(words[0]);
 					pnoTax[1] = Convert::ToInt32(words[1]);
 					pnoTax[2] = Convert::ToInt32(words[2]);
 					pnoTax[3] = Convert::ToInt32(words[3]);
 					break;
-				case 7 :	//²Ä¤C¦æ¬Oª±®a¦s¬¡»P§_
+				case 7 :	//ç¬¬ä¸ƒè¡Œæ˜¯ç©å®¶å­˜æ´»èˆ‡å¦
 					words = words[1]->Split('/');
 					alive[0] = Convert::ToInt32(words[0]);
 					alive[1] = Convert::ToInt32(words[1]);
 					alive[2] = Convert::ToInt32(words[2]);
 					alive[3] = Convert::ToInt32(words[3]);
 					break;
-				case 8:		//²Ä¤K¦æ¬O¦aÂI»ù®æ
+				case 8:		//ç¬¬å…«è¡Œæ˜¯åœ°é»åƒ¹æ ¼
 					words = words[1]->Split('/');
 					for (int^ i = 0; *i < 30; (*i)++)
 						plocaMon[*i] = Convert::ToInt32(words[*i]);
 					break;
-				case 9:		//²Ä¤E¦æ¬O©Ğ¤l¼Æ¶q
+				case 9:		//ç¬¬ä¹è¡Œæ˜¯æˆ¿å­æ•¸é‡
 					words = words[1]->Split('/');
 					for (int^ i = 0; *i < 30; (*i)++)
 						phouses[*i] = Convert::ToInt32(words[*i]);
 					break;
-				case 10:	//²Ä¤Q¦æ¬O©Ğ¤l¥D¤H
+				case 10:	//ç¬¬åè¡Œæ˜¯æˆ¿å­ä¸»äºº
 					words = words[1]->Split('/');
 					for (int^ i = 0; *i < 30; (*i)++)
 						owner[*i] = Convert::ToInt32(words[*i]);
@@ -495,7 +533,7 @@ void loadtxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<
 			}
 		}
 		sl->Close();
-		Console::Write("Åª¨ú¦¨¥\¡C(«ö¤UENTER)");
+		Console::Write("è®€å–æˆåŠŸã€‚(æŒ‰ä¸‹ENTER)");
 		String^ inputString = Console::ReadLine();
 	}
 	catch (Exception^ e)
@@ -509,16 +547,16 @@ void loadtxt(array<String^>^ playerName, int^ people, array<int>^ pmoney, array<
 	return;
 }
 
-//¶Ã¼Æ»ë»ë¤l¡A±q2¨ì12ÂI¡F­«·s¶i¦æ¹CÀ¸¡Fload©Î¬OstoreÀÉ®×¡F¦L¥X©Ò¦³¹L©¹¨Æ¥ó
+//äº‚æ•¸éª°éª°å­ï¼Œå¾2åˆ°12é»ï¼›é‡æ–°é€²è¡ŒéŠæˆ²ï¼›loadæˆ–æ˜¯storeæª”æ¡ˆï¼›å°å‡ºæ‰€æœ‰éå¾€äº‹ä»¶
 int^ rollDice(int^ pdice, int^ preturn, array<String^>^ playerName, int^ people, array<int>^ pmoney, array<int>^ pnoTax, array<int>^ owner, array<int>^ pposition,
 	array<int>^ phouses, array<int>^ plocaMon, array<int>^ alive, array< String^ >^ plocations) {
 	do {
-		Console::Write("«ödÂY»ë¤l¡A«ör­«·s¶}©l¡Ashow¦L¥X©Ò¦³¹L©¹¨Æ¥ó¡Aload¸ü¤JÂÂ¹CÀ¸ÀÉ¡Asave¦sÀÉ¡Adelete§R°£©Ò¦³¬ö¿ıÀÉ: ");
+		Console::Write("æŒ‰dæ“²éª°å­ï¼ŒæŒ‰ré‡æ–°é–‹å§‹ï¼Œshowå°å‡ºæ‰€æœ‰éå¾€äº‹ä»¶ï¼Œloadè¼‰å…¥èˆŠéŠæˆ²æª”ï¼Œsaveå­˜æª”ï¼Œdeleteåˆªé™¤æ‰€æœ‰ç´€éŒ„æª”: ");
 		String^ inputString = Console::ReadLine();
 		if (String::Compare(inputString, "d") == 0) {
 			srand(time(NULL));
 			*pdice = (rand() % 11) + 2;
-			Console::Write("µnµn´h~§A¦@ÂY¥X¤F{0}ÂI¡C\n", *pdice );
+			Console::Write("ç™»ç™»æ„£~ä½ å…±æ“²å‡ºäº†{0}é»ã€‚\n", *pdice );
 			*preturn = 0;
 			return preturn;
 		}
@@ -538,54 +576,75 @@ int^ rollDice(int^ pdice, int^ preturn, array<String^>^ playerName, int^ people,
 		else if (String::Compare(inputString, "load") == 0) {
 			loadtxt(playerName, people, pmoney, pnoTax, owner, pposition, phouses, plocaMon, alive);
 			printMap(plocations, phouses, plocaMon, owner, pposition, people, alive);
+			StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt", true);
+			sw->WriteLine("è®€å–èˆŠæª”......");
+			sw->Close();
 		}
 		else if (String::Compare(inputString, "save") == 0)
 			savetxt(playerName, people, pmoney, pnoTax, owner, pposition, phouses,plocaMon, alive);
 		else if (String::Compare(inputString, "delete") == 0) {
 			if (File::Exists("Save.txt")) {
 				System::IO::File::Delete("Save.txt");
-				Console::Write("¤w§R°£©Ò¦³¬ö¿ıÀÉ¡C");
+				Console::Write("å·²åˆªé™¤æ‰€æœ‰ç´€éŒ„æª”ã€‚");
 			}
 			else
-				Console::Write("µL¥ô¦ó¦sÀÉ¬ö¿ı¡C");
-			Console::Write("(«ö¤UENTER)");
+				Console::Write("ç„¡ä»»ä½•å­˜æª”ç´€éŒ„ã€‚");
+			Console::Write("(æŒ‰ä¸‹ENTER)");
 			String^ enter = Console::ReadLine();
 		}
 		else {
-			Console::Write("¿é¤J¿ù»~¡C\n");
+			Console::Write("è¼¸å…¥éŒ¯èª¤ã€‚\n");
 		}
 	} while (true);
 }
 
-//¾÷·|
+//æ©Ÿæœƒ
 void chance(array<int>^ pmoney, array<int>^ pnoTax, int^ pround) {
+	Console::WriteLine("                        ===========");
+	Console::WriteLine("                       |     @@    |");
+	Console::WriteLine("                       |     @@    |");
+	Console::WriteLine("   yMN/                |     @@    |               /NMy");
+	Console::WriteLine("   yMMN.               | æ©Ÿ  @@    |              .NMMy");
+	Console::WriteLine("   -MMMh               | æœƒ  @@    |              hMMM-");
+	Console::WriteLine("    dMMM+              | å¡        |             +MMMd");
+	Console::WriteLine("    /MMMM-    :mmo`    |     @@    |   `omm:    -MMMM/");
+	Console::WriteLine("     dMMMN+`  .hMMNo`   ===========  `oNMMh.  `+NMMMd");
+	Console::WriteLine("      .NMMMMNs-  /NMMNo`            `oNMMN/  -sNMMMMN.");
+	Console::WriteLine("      `hMMMMMMmo-`sMMMNo`        `oNMMMs`-omMMMMMMh`");
+	Console::WriteLine("        /NMMMMMMMNhmMMMMd`      `dMMMMmyNMMMMMMMN/");
+	Console::WriteLine("        `hMMMMMMMMMMMMMMo      oMMMMMMMMMMMMMMh");
+	Console::WriteLine("            :dMMMMMMMMMMMMm      mMMMMMMMMMMMMd: ");
+	Console::WriteLine("             -sNMMMMMMMMMM.    .MMMMMMMMMMNs-");
+	Console::WriteLine("                :hMMMMMMMM+    +MMMMMMMMh:");
+	Console::WriteLine("                   hMMMMMMMd    dMMMMMMMh\n");
+
 	int^ ptemp = gcnew int;
 	srand(time(NULL));
 	*ptemp = rand() % 5;
 	String^ enter;
 	switch (*ptemp) {
 	case 0:
-		Console::Write("¤@¦W¨ü¶Ë¤S°g¸ôªººëÆF¦V§A¨D§U¡A§Aµ¹¤F¥L250¤¸®È¶O¡C(«ö¤UENTER)");
+		Console::Write("ä¸€åå—å‚·åˆè¿·è·¯çš„ç²¾éˆå‘ä½ æ±‚åŠ©ï¼Œä½ çµ¦äº†ä»–250å…ƒæ—…è²»ã€‚(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] -= 250;
 		enter = Console::ReadLine();
 		break;
 	case 1:
-		Console::Write("³Q±²¶i¥bÃ~¤H¾Ôª§¡A­«¶Ë¦í°|¡Aªá700¤¸ªvÀø¶O¡C(«ö¤UENTER)");
+		Console::Write("è¢«æ²é€²åŠç¸äººæˆ°çˆ­ï¼Œé‡å‚·ä½é™¢ï¼ŒèŠ±700å…ƒæ²»ç™‚è²»ã€‚(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] -= 700;
 		enter = Console::ReadLine();
 		break;
 	case 2:
-		Console::Write("±o¨ì°kµ|¤j®vªº¿Ë¦Û«üÂI¡AÀò±o¤@¥»°kµ|±KÄy¡C(¥i¥H¤ÖÃº¤@¦¸µ|)(«ö¤UENTER)");
+		Console::Write("å¾—åˆ°é€ƒç¨…å¤§å¸«çš„è¦ªè‡ªæŒ‡é»ï¼Œç²å¾—ä¸€æœ¬é€ƒç¨…å¯†ç±ã€‚(å¯ä»¥å°‘ç¹³ä¸€æ¬¡ç¨…)(æŒ‰ä¸‹ENTER)");
 		pnoTax[*pround] += 1;
 		enter = Console::ReadLine();
 		break;
 	case 3:
-		Console::Write("¸G¤H»â¾ÉªÌ°e¤W500¤¸¡A¤wªí¥Ü¤Í¦n¡A¬İ¨Ó§A¥æ¨ì¤F·sªB¤Í©O¡C(«ö¤UENTER)");
+		Console::Write("çŸ®äººé ˜å°è€…é€ä¸Š500å…ƒï¼Œå·²è¡¨ç¤ºå‹å¥½ï¼Œçœ‹ä¾†ä½ äº¤åˆ°äº†æ–°æœ‹å‹å‘¢ã€‚(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] += 500;
 		enter = Console::ReadLine();
 		break;
 	case 4:
-		Console::Write("¨ì¶Â¥«ÅÜ½æ§A°½¨ÓªººëÆFÄ_¼C¡AÁÈ¤F400¤¸¡A¨}¤ß¦n¹³¦³ÂI¤£¦w...(«ö¤UENTER)");
+		Console::Write("åˆ°é»‘å¸‚è®Šè³£ä½ å·ä¾†çš„ç²¾éˆå¯¶åŠï¼Œè³ºäº†400å…ƒï¼Œè‰¯å¿ƒå¥½åƒæœ‰é»ä¸å®‰...(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] += 400;
 		enter = Console::ReadLine();
 		break;
@@ -596,55 +655,73 @@ void chance(array<int>^ pmoney, array<int>^ pnoTax, int^ pround) {
 	return;
 }
 
-//©R¹B
+//å‘½é‹
 void community(array<int>^ pmoney, array<int>^ pnoTax, int^ pround) {
+	Console::WriteLine("                        ===========");
+	Console::WriteLine("                       |     @@    |");
+	Console::WriteLine("                       |     @@    |");
+	Console::WriteLine("   yMN/                |     @@    |               /NMy");
+	Console::WriteLine("   yMMN.               | å‘½  @@    |              .NMMy");
+	Console::WriteLine("   -MMMh               | é‹  @@    |              hMMM-");
+	Console::WriteLine("    dMMM+              | å¡        |             +MMMd");
+	Console::WriteLine("    /MMMM-    :mmo`    |     @@    |   `omm:    -MMMM/");
+	Console::WriteLine("     dMMMN+`  .hMMNo`   ===========  `oNMMh.  `+NMMMd");
+	Console::WriteLine("      .NMMMMNs-  /NMMNo`            `oNMMN/  -sNMMMMN.");
+	Console::WriteLine("      `hMMMMMMmo-`sMMMNo`        `oNMMMs`-omMMMMMMh`");
+	Console::WriteLine("        /NMMMMMMMNhmMMMMd`      `dMMMMmyNMMMMMMMN/");
+	Console::WriteLine("        `hMMMMMMMMMMMMMMo      oMMMMMMMMMMMMMMh");
+	Console::WriteLine("            :dMMMMMMMMMMMMm      mMMMMMMMMMMMMd: ");
+	Console::WriteLine("             -sNMMMMMMMMMM.    .MMMMMMMMMMNs-");
+	Console::WriteLine("                :hMMMMMMMM+    +MMMMMMMMh:");
+	Console::WriteLine("                   hMMMMMMMd    dMMMMMMMh\n");
+
 	int* ptemp = new int;
 	srand(time(NULL));
 	*ptemp = rand() % 5;
 	String^ enter;
 	switch (*ptemp) {
 	case 0:
-		if (*pround == 0) {	//¥u¦³¤@¸¹ª±®a·|Ä²µo¦¹¼@±¡
-			Console::Write("§A¶i¨ì¤@­Ó¯«¯¦ªº¬}¥Ş±´ÀI¡A¸Õ¹Ï§ä¨ìÄ_ÂÃ¡C(«ö¤UENTER)");
+		if (*pround == 0) {	//åªæœ‰ä¸€è™Ÿç©å®¶æœƒè§¸ç™¼æ­¤åŠ‡æƒ…
+			Console::Write("ä½ é€²åˆ°ä¸€å€‹ç¥ç¥•çš„æ´ç©´æ¢éšªï¼Œè©¦åœ–æ‰¾åˆ°å¯¶è—ã€‚(æŒ‰ä¸‹ENTER)");
 			enter = Console::ReadLine();
-			Console::Write("¬ğµM«_¥X¤F§l¦å°­¤k¤ı¡A¦o¤jÁnÄş³d§AµL²zªºÂô¤J¦æ¬°¡A¨ÃÅS¥Xæy¤ú¡A§AÀ~±oÂù»Lµo³n¡C(«ö¤UENTER)");
+			Console::Write("çªç„¶å†’å‡ºäº†å¸è¡€é¬¼å¥³ç‹ï¼Œå¥¹å¤§è²è­´è²¬ä½ ç„¡ç†çš„é—–å…¥è¡Œç‚ºï¼Œä¸¦éœ²å‡ºç ç‰™ï¼Œä½ åš‡å¾—é›™è…¿ç™¼è»Ÿã€‚(æŒ‰ä¸‹ENTER)");
 			enter = Console::ReadLine();
 			srand(time(NULL));
 			*ptemp = rand() % 4;
 			if (*ptemp == 2) {
-				Console::Write("¡u³áµ¥µ¥¡A§Ú»{ÃÑ§A¡C¡v§l¦å°­¤k¤ı¬ğµM¦¬°_À~¤Hªºªí±¡¡A¡u§A¬O¨º­Ó¨ì³B´Ş¥Á¤g¦aªº©Ç¤H¡C¡v(«ö¤UENTER)");
+				Console::Write("ã€Œå–”ç­‰ç­‰ï¼Œæˆ‘èªè­˜ä½ ã€‚ã€å¸è¡€é¬¼å¥³ç‹çªç„¶æ”¶èµ·åš‡äººçš„è¡¨æƒ…ï¼Œã€Œä½ æ˜¯é‚£å€‹åˆ°è™•æ®–æ°‘åœŸåœ°çš„æ€ªäººã€‚ã€(æŒ‰ä¸‹ENTER)");
 				enter = Console::ReadLine();
-				Console::Write("§l¦å°­¤k¤ıªí¥ÜÆg½à§A[¨¸´c]ªº¦æ¬°¡Aµ¹¤F§A2500¤¸¼úÀy¡C§A¤ß±¡½ÆÂøªº¦¬¤U¤F¡C(«ö¤UENTER)");
+				Console::Write("å¸è¡€é¬¼å¥³ç‹è¡¨ç¤ºè®šè³ä½ [é‚ªæƒ¡]çš„è¡Œç‚ºï¼Œçµ¦äº†ä½ 2500å…ƒçå‹µã€‚ä½ å¿ƒæƒ…è¤‡é›œçš„æ”¶ä¸‹äº†ã€‚(æŒ‰ä¸‹ENTER)");
 				pmoney[*pround] += 2500;
 			}
 			else {
-				Console::Write("§AÂà¨­°k¶]¡A·W¶Ã¤¤¤f³Uªºª÷¹ô±¼¤F¥X¨Ó¡A·l¥¢100¤¸¡C(«ö¤UENTER)");
+				Console::Write("ä½ è½‰èº«é€ƒè·‘ï¼Œæ…Œäº‚ä¸­å£è¢‹çš„é‡‘å¹£æ‰äº†å‡ºä¾†ï¼Œæå¤±100å…ƒã€‚(æŒ‰ä¸‹ENTER)");
 				pmoney[*pround] -= 100;
 			}
 			enter = Console::ReadLine();
 		}
 		else {
-			Console::Write("¥L¶i¨ì¤@­Ó¯«¯¦ªº¬}¥Ş±´ÀI¡A¸Õ¹Ï§ä¨ìÄ_ÂÃ¡Aµ²ªG¬Æ»ò³£¨S¦³¡C(«ö¤UENTER)");
+			Console::Write("ä»–é€²åˆ°ä¸€å€‹ç¥ç¥•çš„æ´ç©´æ¢éšªï¼Œè©¦åœ–æ‰¾åˆ°å¯¶è—ï¼Œçµæœç”šéº¼éƒ½æ²’æœ‰ã€‚(æŒ‰ä¸‹ENTER)");
 			enter = Console::ReadLine();
 		}
 		break;
 	case 1:
-		Console::Write("§A¾iªºÀs±Ã²æÂêÃì¡A¤j¸v¯}Ãa§Aªº´Ş¥Á¦a¡A·l¥¢ºG­«¡Aªá¶O1000¤¸­««Ø¡C(«ö¤UENTER)");
+		Console::Write("ä½ é¤Šçš„é¾æ™è„«é–éˆï¼Œå¤§è‚†ç ´å£ä½ çš„æ®–æ°‘åœ°ï¼Œæå¤±æ…˜é‡ï¼ŒèŠ±è²»1000å…ƒé‡å»ºã€‚(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] -= 1000;
 		enter = Console::ReadLine();
 		break;
 	case 2:
-		Console::Write("§Ú¤@¨£§A°©Àfºë©_¡A´N¬O½mªZªº©_¤~¡A³o¨â¥»°kµ|±KÄy®³¥h§a¡C(¥i¥H¤ÖÃº¨â¦¸µ|)(«ö¤UENTER)");
+		Console::Write("æˆ‘ä¸€è¦‹ä½ éª¨éª¼ç²¾å¥‡ï¼Œå°±æ˜¯ç·´æ­¦çš„å¥‡æ‰ï¼Œé€™å…©æœ¬é€ƒç¨…å¯†ç±æ‹¿å»å§ã€‚(å¯ä»¥å°‘ç¹³å…©æ¬¡ç¨…)(æŒ‰ä¸‹ENTER)");
 		pnoTax[*pround] += 2;
 		enter = Console::ReadLine();
 		break;
 	case 3:
-		Console::Write("§A¦b¼o±óªºÄq§|¸Ì§ä¨ì¤@½cª÷¹ô¡Aµo°]°Õµo°]°Õ!!³á¡Aµ¥µ¥¡A¸Ì­±¥u¦³50¤¸...(«ö¤UENTER)");
+		Console::Write("ä½ åœ¨å»¢æ£„çš„ç¤¦å‘è£¡æ‰¾åˆ°ä¸€ç®±é‡‘å¹£ï¼Œç™¼è²¡å•¦ç™¼è²¡å•¦!!å–”ï¼Œç­‰ç­‰ï¼Œè£¡é¢åªæœ‰50å…ƒ...(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] += 50;
 		enter = Console::ReadLine();
 		break;
 	case 4:
-		Console::Write("¤@°¦¬Á¼şÃ~¸ú¦b§Aªº¹u¤l¸Ì¡A¬ï¾c®É®tÂI§â¥L½ò«ó¤F¡A§A§İ¤F§İ¹u¤l¡A¬Á¼şÃ~³s¦P¥L¨­¤Wªº450¤¸¤@°_±¼¤U¨Ó¡C(«ö¤UENTER)");
+		Console::Write("ä¸€éš»ç»ç’ƒç¸èº²åœ¨ä½ çš„é´å­è£¡ï¼Œç©¿é‹æ™‚å·®é»æŠŠä»–è¸©æ‰äº†ï¼Œä½ æŠ–äº†æŠ–é´å­ï¼Œç»ç’ƒç¸é€£åŒä»–èº«ä¸Šçš„450å…ƒä¸€èµ·æ‰ä¸‹ä¾†ã€‚(æŒ‰ä¸‹ENTER)");
 		pmoney[*pround] += 450;
 		enter = Console::ReadLine();
 		break;
@@ -655,124 +732,133 @@ void community(array<int>^ pmoney, array<int>^ pnoTax, int^ pround) {
 	return;
 }
 
-//¹q¸£¦Û°Ê¶i¦æ¹CÀ¸
+//é›»è…¦è‡ªå‹•é€²è¡ŒéŠæˆ²
 void autoGame(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ phouses, array<int>^ plocaMon, array<int>^ alive,
 	array<int>^ owner, array<int>^ pposition, int^ people, int^ pround, array<int>^ pmoney, array<int>^ pnoTax, array<String^>^ playerName, String^ showStore)
 {
 	srand(time(NULL));
 	*pdice = (rand() % 11) + 2;
-	Console::Write("µnµn´h~ÂY¥X¤F{0}ÂI¡C", *pdice);
-	showStore = showStore + "ª±®a" + playerName[*pround] + "ÂY¥X" + *pdice + "ÂI¡C";
+	Console::Write("ç™»ç™»æ„£~æ“²å‡ºäº†{0}é»ã€‚", *pdice);
+	showStore = showStore + "ç©å®¶" + playerName[*pround] + "æ“²å‡º" + *pdice + "é»ã€‚";
 	pposition[*pround] += *pdice;
 	if (pposition[*pround] >= 30) {
 		pposition[*pround] -= 30;
-		Console::Write("¸g¹L°_ÂI¡AÀò±o300¤¸¼úÀy¡C");
-		showStore = showStore + "¸g¹L°_ÂI¡AÀò±o300¤¸¼úÀy¡C";
+		Console::Write("ç¶“éèµ·é»ï¼Œç²å¾—300å…ƒçå‹µã€‚");
+		showStore = showStore + "ç¶“éèµ·é»ï¼Œç²å¾—300å…ƒçå‹µã€‚";
 		pmoney[*pround] += 300;
 	}
-	Console::Write("«e©¹[ {0} ]¤è¶ô¡C\n", plocations[pposition[*pround]]);
-	showStore = showStore + "«e©¹[" + plocations[pposition[*pround]] + "]¤è¶ô¡C\n";
-	//¨ì¹F¾÷·|¤è¶ô
+	Console::Write("å‰å¾€[ {0} ]æ–¹å¡Šã€‚\n", plocations[pposition[*pround]]);
+	showStore = showStore + "å‰å¾€[" + plocations[pposition[*pround]] + "]æ–¹å¡Šã€‚\n";
+	//åˆ°é”æ©Ÿæœƒæ–¹å¡Š
 	if (pposition[*pround] == 6) {
-		Console::Write("©â¨ú¤@±i¾÷·|µP...");
+		Console::Write("æŠ½å–ä¸€å¼µæ©Ÿæœƒç‰Œ...\n");
 		chance(pmoney, pnoTax, pround);
 	}
-	//¨ì¹F©R¹B¤è¶ô
+	//åˆ°é”å‘½é‹æ–¹å¡Š
 	else if (pposition[*pround] == 17) {
-		Console::Write("©â¨ú¤@±i©R¹BµP...");
+		Console::Write("æŠ½å–ä¸€å¼µå‘½é‹ç‰Œ...\n");
 		community(pmoney, pnoTax, pround);
 	}
-	//¨ì¹F©âµ|¤è¶ô
+	//åˆ°é”æŠ½ç¨…æ–¹å¡Š
 	else if (pposition[*pround] == 10 || pposition[*pround] == 25) {
-		Console::Write("{0}¯¸¤W¤F¦¬µ|¤è¶ô¡A­n¤WÃº200¶ôµ¹¨t²Î¡C", playerName[*pround]);
-		Console::Write("  («ö¤UENTER)");
+		Console::Write("{0}ç«™ä¸Šäº†æ”¶ç¨…æ–¹å¡Šï¼Œè¦ä¸Šç¹³200å¡Šçµ¦ç³»çµ±ã€‚", playerName[*pround]);
+		Console::Write("  (æŒ‰ä¸‹ENTER)");
 		String^ inputString = Console::ReadLine();
 		if (pnoTax[*pround] > 0) {
-			Console::Write("¦ı¥L¨Ï¥Î¤F°kµ|±KÄy!");
-			showStore = showStore + "¦¬µ|®É¶¡¡A¨Ï¥Î°kµ|±KÄy¡C\n";
+			Console::Write("ä½†ä»–ä½¿ç”¨äº†é€ƒç¨…å¯†ç±!");
+			showStore = showStore + "æ”¶ç¨…æ™‚é–“ï¼Œä½¿ç”¨é€ƒç¨…å¯†ç±ã€‚\n";
 			pnoTax[*pround]--;
-			Console::Write("  («ö¤UENTER)");
+			Console::Write("  (æŒ‰ä¸‹ENTER)");
 			inputString = Console::ReadLine();
 		}
 		else {
 			pmoney[*pround] -= 200;
-			showStore = showStore + "¦¬µ|®É¶¡¡A¤WÃº200¶ô¡C\n";
+			showStore = showStore + "æ”¶ç¨…æ™‚é–“ï¼Œä¸Šç¹³200å¡Šã€‚\n";
 		}
 	}
 	else if (pposition[*pround] == 0) {
-		Console::Write("¥L¦ù¦ùÃi¸y¡A·Ç³Æ¤U¦¸¥Xµo¡C");
-		Console::Write("  («ö¤UENTER)");
+		Console::Write("  (æŒ‰ä¸‹ENTER)");
 		String^ inputString = Console::ReadLine();
 	}
-	//©Ğ«Î¤è¶ô
+	//æˆ¿å±‹æ–¹å¡Š
 	else {
-		//¨ì¹F¥iÁÊ¶Rªº¤è¶ô
+		//åˆ°é”å¯è³¼è²·çš„æ–¹å¡Š
 		if (owner[pposition[*pround]] == (*pround) + 1 || owner[pposition[*pround]] == 0) {
-			//¤g¦a¨ì¹F¤­¯Å©Ğ¤l
+			//åœŸåœ°åˆ°é”äº”ç´šæˆ¿å­
 			if (phouses[pposition[*pround]] >= 5) {
-				plocaMon[pposition[*pround]] = (int)plocaMon[pposition[*pround]] / 2;
-				Console::Write("¤g¦a¨ì¹F¤­¯Å©Ğ¤l¡A¦¬¨ú¯²ª÷¡AÀò±o{0}¤¸¡C)", (int)plocaMon[pposition[*pround]] * 1.5);
-				showStore = showStore + "¦¬¨ú¯²ª÷¡AÀò±o" + (int)plocaMon[pposition[*pround]] * 1.5 + "¤¸¡C\n";
+				Console::Write("åœŸåœ°åˆ°é”äº”ç´šæˆ¿å­ï¼Œæ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—{0}å…ƒã€‚)", (int)plocaMon[pposition[*pround]] * 1.5);
+				showStore = showStore + "æ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—" + (int)plocaMon[pposition[*pround]] * 1.5 + "å…ƒã€‚\n";
 				pmoney[*pround] += (int)plocaMon[pposition[*pround]] * 1.5;
-				Console::Write("  («ö¤UENTER)");
+				Console::Write("  (æŒ‰ä¸‹ENTER)");
 				String^ inputString = Console::ReadLine();
 			}
-			//¶R©Ğ¤l
+			//è²·æˆ¿å­
 			else {
 				if (phouses[pposition[*pround]] == 0)
-					Console::Write("ª±®a{0}¦³²{ª÷{1}¤¸¡AÁÊ¶R¦¹¦a©Ğ¤l»İªá¶O{2}¤¸¡C", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
+					Console::Write("ç©å®¶{0}æœ‰ç¾é‡‘{1}å…ƒï¼Œè³¼è²·æ­¤åœ°æˆ¿å­éœ€èŠ±è²»{2}å…ƒã€‚", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
 				else {
-					Console::Write("¦b¦¹¦a¤w¸g¦³{0}¯Å©Ğ¤l¡C¦¬¨ú¯²ª÷¡AÀò±o{1}¤¸¡C", phouses[pposition[*pround]], (int)plocaMon[pposition[*pround]] / 2 * 1.5);
+					Console::Write("åœ¨æ­¤åœ°å·²ç¶“æœ‰{0}ç´šæˆ¿å­ã€‚æ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—{1}å…ƒã€‚", phouses[pposition[*pround]], (int)plocaMon[pposition[*pround]] / 2 * 1.5);
 					
 					pmoney[*pround] += (int)plocaMon[pposition[*pround]] / 2 * 1.5;
-					Console::Write("ª±®a{0}¦³²{ª÷{1}¤¸¡A¤É¯Å©Ğ¤l»İ­nªá¶O{2}¤¸¡C", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
+					Console::Write("ç©å®¶{0}æœ‰ç¾é‡‘{1}å…ƒï¼Œå‡ç´šæˆ¿å­éœ€è¦èŠ±è²»{2}å…ƒã€‚", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
 				}
 				if (pmoney[*pround] > plocaMon[pposition[*pround]]+100) {
 					pmoney[*pround] -= plocaMon[pposition[*pround]];
 					phouses[pposition[*pround]] += 1;
-					plocaMon[pposition[*pround]] *= 2;
-					Console::Write("¥L¿ï¾Ü¤É¯Å[ {0} ]ªº©Ğ¤l¡C ¦¹¦aÂI¬O {1} ¯Å©Ğ«Î¡C", plocations[pposition[*pround]], phouses[pposition[*pround]]);
-					showStore = showStore + "¤É¯Å¤F" + plocations[pposition[*pround]] + "ªº©Ğ¤l¡C ¦¹¦aÂI¬O" + phouses[pposition[*pround]] + "¯Å©Ğ«Î¡C\n";
+					if (phouses[pposition[*pround]] < 5)
+						plocaMon[pposition[*pround]] *= 2;
+					Console::Write("ä»–é¸æ“‡å‡ç´š[ {0} ]çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯ {1} ç´šæˆ¿å±‹ã€‚", plocations[pposition[*pround]], phouses[pposition[*pround]]);
+					showStore = showStore + "å‡ç´šäº†" + plocations[pposition[*pround]] + "çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯" + phouses[pposition[*pround]] + "ç´šæˆ¿å±‹ã€‚\n";
 					owner[pposition[*pround]] = (*pround) + 1;
-					Console::Write("  («ö¤UENTER)");
+					Console::Write("  (æŒ‰ä¸‹ENTER)");
 					String^ inputString = Console::ReadLine();
 				}
 				else {
-					Console::Write("¥L©Úµ´ÁÊ¶R©Ğ¤l¡A¹CÀ¸Ä~Äò¡C");
-					showStore = showStore + "©Úµ´ÁÊ¶R©Ğ¤l¡C\n";
-					Console::Write("  («ö¤UENTER)");
+					Console::Write("ä»–æ‹’çµ•è³¼è²·æˆ¿å­ï¼ŒéŠæˆ²ç¹¼çºŒã€‚");
+					showStore = showStore + "æ‹’çµ•è³¼è²·æˆ¿å­ã€‚\n";
+					Console::Write("  (æŒ‰ä¸‹ENTER)");
 					String^ inputString = Console::ReadLine();
 				}
 			}
 		}
-		//½ò¤W§O¤H®aªº¤g¦a
+		//è¸©ä¸Šåˆ¥äººå®¶çš„åœŸåœ°
 		else if (owner[pposition[*pround]] != (*pround) + 1 && owner[pposition[*pround]] > 0) {
 			if (alive[owner[pposition[*pround]] - 1] == 0) {
-				Console::Write("¯¸¤W¤F{0}¸¹ª±®aªº¤g¦a¡A»İ­n¥I{1}¤¸¹L¸ô¶O¡C", owner[pposition[*pround]], (int)plocaMon[pposition[*pround]] * 0.8);
-				showStore = showStore + "¯¸¤W¤F" + owner[pposition[*pround]] + "¸¹ª±®aªº¤g¦a¡A»İ­n¥I¥L" + (int)plocaMon[pposition[*pround]] * 0.8 + "¤¸¹L¸ô¶O¡C\n";
-				pmoney[*pround] -= (int)plocaMon[pposition[*pround]] * 0.8;
-				pmoney[owner[pposition[*pround]] - 1] += (int)plocaMon[pposition[*pround]] * 0.8;
-				Console::Write("  («ö¤UENTER)");
+				Console::Write("ç«™ä¸Šäº†{0}è™Ÿç©å®¶çš„åœŸåœ°ï¼Œéœ€è¦ä»˜{1}å…ƒéè·¯è²»ã€‚", owner[pposition[*pround]], (int)plocaMon[pposition[*pround]] * 0.5);
+				showStore = showStore + "ç«™ä¸Šäº†" + owner[pposition[*pround]] + "è™Ÿç©å®¶çš„åœŸåœ°ï¼Œéœ€è¦ä»˜ä»–" + (int)plocaMon[pposition[*pround]] * 0.5 + "å…ƒéè·¯è²»ã€‚\n";
+				pmoney[*pround] -= (int)plocaMon[pposition[*pround]] * 0.5;
+				pmoney[owner[pposition[*pround]] - 1] += (int)plocaMon[pposition[*pround]] * 0.5;
+				Console::Write("  (æŒ‰ä¸‹ENTER)");
 				String^ inputString = Console::ReadLine();
 			}
 			else {
-				Console::Write("¾Ö¦³³o¶ô¦aªºª±®a¤w¸g¦º¤`¤F¡A¬°¤F³q¹L¥Rº¡©Çª«ªº¯î¦a¡A¥L¥I¤F{0}¤¸¹L¸ô¶O¡C", (int)plocaMon[pposition[*pround]] * 0.4);
-				showStore = showStore + "Ãº¥æ" + (int)plocaMon[pposition[*pround]] * 0.4 + "¤¸¹L¸ô¶O¤~¥i¥H¥­¦w³q¹L";
-				pmoney[*pround] -= ((int)plocaMon[pposition[*pround]] * 0.4);
-				Console::Write(" («ö¤UENTER)");
-				String^ inputString = Console::ReadLine();
+				Console::Write("é€™å¡Šåœ°ä¸»äººå·²æ­»äº¡ï¼Œ{0}å…ƒæ¥ç®¡ä»–çš„åœŸåœ°ã€‚", (int)plocaMon[pposition[*pround]] / 2);
+				if (pmoney[*pround] > plocaMon[pposition[*pround]] / 2 + 100) {
+					pmoney[*pround] -= (plocaMon[pposition[*pround]] / 2); 
+					Console::Write("ä»–é¸æ“‡æ¥ç®¡[ {0} ]çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯ {1} ç´šæˆ¿å±‹ã€‚", plocations[pposition[*pround]], phouses[pposition[*pround]]);
+					showStore = showStore + "æ¥ç®¡äº†" + plocations[pposition[*pround]] + "çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯" + phouses[pposition[*pround]] + "ç´šæˆ¿å±‹ã€‚\n";
+					owner[pposition[*pround]] = (*pround) + 1;
+					Console::Write("  (æŒ‰ä¸‹ENTER)");
+					String^ inputString = Console::ReadLine();
+				}
+				else {
+					Console::Write("ä»–æ‹’çµ•æ¥ç®¡æˆ¿å­ï¼ŒéŠæˆ²ç¹¼çºŒã€‚");
+					showStore = showStore + "æ‹’çµ•æ¥ç®¡æˆ¿å­ã€‚\n";
+					Console::Write("  (æŒ‰ä¸‹ENTER)");
+					String^ inputString = Console::ReadLine();
+				}
 			}
 		}
 	}
 
-	//¯}²£
+	//ç ´ç”¢
 	if (pmoney[*pround] <= 0) {
-		Console::Write("\n{0}¯}²£¤F!!!(«ö¤UENTER)\n", playerName[*pround]);
-		showStore = showStore + "ª±®a" + playerName[*pround] + "¯}²£¤F¡C\n";
+		Console::Write("\n{0}ç ´ç”¢äº†!!!(æŒ‰ä¸‹ENTER)\n", playerName[*pround]);
+		showStore = showStore + "ç©å®¶" + playerName[*pround] + "ç ´ç”¢äº†ã€‚\n";
 		String^ inputString = Console::ReadLine();
 		alive[*pround] = 1;
 		if (*people == 2 || (alive[2] == 1 && alive[1] == 1 && *people == 3) || (alive[3] == 1 && alive[2] == 1 && alive[1] == 1)) {
-			Console::Write("®¥³ß§AÄ¹±o³Ó§Q!\n­n­«·s¶}©l¹CÀ¸¶Ü?(«ör­«·s¶}©l):");
+			Console::Write("æ­å–œä½ è´å¾—å‹åˆ©!\nè¦é‡æ–°é–‹å§‹éŠæˆ²å—?(æŒ‰ré‡æ–°é–‹å§‹):");
 			do {
 				String^ YesNo = Console::ReadLine();
 				if (String::Compare(YesNo, "r") == 0) {
@@ -780,11 +866,13 @@ void autoGame(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ 
 					return;
 				}
 				else
-					Console::Write("¿é¤J¿ù»~¡A½Ğ­«·s¿é¤J:");
+					Console::Write("è¼¸å…¥éŒ¯èª¤ï¼Œè«‹é‡æ–°è¼¸å…¥:");
 			} while (1);
 		}
 	}
-	//¬°¤Fshow¦sÀÉ
+
+	//ç‚ºäº†showå­˜æª”
+	showStore = showStore + "ç©å®¶"+ playerName[*pround] +"æ“æœ‰" + pmoney[*pround] + "å…ƒã€‚\n";
 	StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt", true);
 	sw->WriteLine(showStore);
 	sw->Close();
@@ -792,119 +880,134 @@ void autoGame(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ 
 	return;
 }
 
-//¹CÀ¸¥D­n¬[ºc¡A¥iÅıª±®a¿é¤J«ü¥O
+//éŠæˆ²ä¸»è¦æ¶æ§‹ï¼Œå¯è®“ç©å®¶è¼¸å…¥æŒ‡ä»¤
 void gameLoop(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ phouses, array<int>^ plocaMon, array<int>^ alive,
 	array<int>^ owner, array<int>^ pposition, int^ people, int^ pround, array<int>^ pmoney, array<int>^ pnoTax, array<String^>^ playerName, String^ showStore)
 {
 	if (*rollDice(pdice, preturn, playerName, people, pmoney, pnoTax, owner, pposition, phouses, plocaMon, alive, plocations) == 1)
 		return;
-	showStore = showStore + "ª±®a" + playerName[*pround] + "ÂY¥X" + *pdice + "ÂI¡C";
+	showStore = showStore + "ç©å®¶" + playerName[*pround] + "æ“²å‡º" + *pdice + "é»ã€‚";
 	pposition[*pround] += *pdice;
 	if (pposition[*pround] >= 30) {
 		pposition[*pround] -= 30;
-		Console::Write("¸g¹L°_ÂI¡A«Ü°ª¿³§A¯à¬¡µÛ¦^¨Ó¡A°e§A300¤¸¼úÀy¡C\n");
-		showStore = showStore + "¸g¹L°_ÂI¡AÀò±o300¤¸¼úÀy¡C";
+		Console::Write("ç¶“éèµ·é»ï¼Œå¾ˆé«˜èˆˆä½ èƒ½æ´»è‘—å›ä¾†ï¼Œé€ä½ 300å…ƒçå‹µã€‚\n");
+		showStore = showStore + "ç¶“éèµ·é»ï¼Œç²å¾—300å…ƒçå‹µã€‚";
 		pmoney[*pround] += 300;
 	}
-	Console::Write("«e©¹[ {0} ]¤è¶ô¡C(«ö¤UENTER)", plocations[pposition[*pround]]);
-	showStore = showStore + "«e©¹[" + plocations[pposition[*pround]] + "]¤è¶ô¡C\n";
+	Console::Write("å‰å¾€[ {0} ]æ–¹å¡Šã€‚(æŒ‰ä¸‹ENTER)", plocations[pposition[*pround]]);
+	showStore = showStore + "å‰å¾€[" + plocations[pposition[*pround]] + "]æ–¹å¡Šã€‚\n";
 	String^ enter = Console::ReadLine();
-	//¨ì¹F¾÷·|¤è¶ô
+	//åˆ°é”æ©Ÿæœƒæ–¹å¡Š
 	if (pposition[*pround] == 6) {
-		Console::Write("¦M¾÷´N¬OÂà¾÷! ¿Ë·Rªºª±®a¡A©â¨ú¤@±i¾÷·|µP...(«ö¤UENTER)");
+		Console::Write("å±æ©Ÿå°±æ˜¯è½‰æ©Ÿ! è¦ªæ„›çš„ç©å®¶ï¼ŒæŠ½å–ä¸€å¼µæ©Ÿæœƒç‰Œ...(æŒ‰ä¸‹ENTER)");
 		enter = Console::ReadLine();
 		chance(pmoney, pnoTax, pround);
 	}
-	//¨ì¹F©R¹B¤è¶ô
+	//åˆ°é”å‘½é‹æ–¹å¡Š
 	else if (pposition[*pround] == 17) {
-		Console::Write("§A¨ì¹F¤F©R¹B¤k¯«ªº·µ°ó¡A¦o±N½ç¤©§A¤@±i©R¹BµP...(«ö¤UENTER)");
+		Console::Write("ä½ åˆ°é”äº†å‘½é‹å¥³ç¥çš„æ®¿å ‚ï¼Œå¥¹å°‡è³œäºˆä½ ä¸€å¼µå‘½é‹ç‰Œ...(æŒ‰ä¸‹ENTER)");
 		enter = Console::ReadLine();
 		community(pmoney, pnoTax, pround);
 	}
-	//¨ì¹F©âµ|¤è¶ô
+	//åˆ°é”æŠ½ç¨…æ–¹å¡Š
 	else if (pposition[*pround] == 10 || pposition[*pround] == 25) {
-		Console::Write("¯u­Ë·°¡A¬O¦¬µ|®É¶¡!!! ½Ğ¤WÃº200¶ôµ¹¨t²Î¡C(«ö¤UENTER)");
+		Console::Write("çœŸå€’æ¥£ï¼Œæ˜¯æ”¶ç¨…æ™‚é–“!!! è«‹ä¸Šç¹³200å¡Šçµ¦ç³»çµ±ã€‚(æŒ‰ä¸‹ENTER)");
 		enter = Console::ReadLine();
 		if (pnoTax[*pround] > 0) {
-			Console::Write("¨Ï¥Î°kµ|±KÄy!!!§Ú´N¬O¦º¤£Ãºµ|¤T¤Q¤»¦¡!\n");
-			showStore = showStore + "¦¬µ|®É¶¡¡A¨Ï¥Î°kµ|±KÄy¡C\n";
+			Console::Write("ä½¿ç”¨é€ƒç¨…å¯†ç±!!!æˆ‘å°±æ˜¯æ­»ä¸ç¹³ç¨…ä¸‰åå…­å¼!\n");
+			showStore = showStore + "æ”¶ç¨…æ™‚é–“ï¼Œä½¿ç”¨é€ƒç¨…å¯†ç±ã€‚\n";
 			pnoTax[*pround]--;
 		}
 		else {
 			pmoney[*pround] -= 200;
-			showStore = showStore + "¦¬µ|®É¶¡¡A¤WÃº200¶ô¡C\n";
+			showStore = showStore + "æ”¶ç¨…æ™‚é–“ï¼Œä¸Šç¹³200å¡Šã€‚\n";
 		}
 	}
-	//¨ì¹F°_ÂI
+	//åˆ°é”èµ·é»
 	else if (pposition[*pround] == 0) {
-		Console::Write("Åwªï¦^¨Ó!(«ö¤UENTER)");
-		enter = Console::ReadLine();
+		
 	}
-	//©Ğ«Î¤è¶ô
+	//æˆ¿å±‹æ–¹å¡Š
 	else {
-		//¨ì¹F¥iÁÊ¶Rªº¤è¶ô
+		//åˆ°é”å¯è³¼è²·çš„æ–¹å¡Š
 		if (owner[pposition[*pround]] == (*pround) + 1 || owner[pposition[*pround]] == 0) {
-			//¤g¦a¨ì¹F¤­¯Å©Ğ¤l
+			//åœŸåœ°åˆ°é”äº”ç´šæˆ¿å­
 			if (phouses[pposition[*pround]] >= 5) {
-				plocaMon[pposition[*pround]] = (int)plocaMon[pposition[*pround]] / 2;
-				Console::Write("¦¹¦aÂI¤w¬O¤­¯Å©Ğ¤l¡A¨ì¹F¤g¦a¤W­­¡AµLªk¦A»\©Ğ¤l¡C¦¬¨ú¯²ª÷¡AÀò±o{0}¤¸¡C(«ö¤UENTER) )", (int)plocaMon[pposition[*pround]] * 1.5);
-				showStore = showStore + "¦¬¨ú¯²ª÷¡AÀò±o" + (int)plocaMon[pposition[*pround]] * 1.5 + "¤¸¡C\n";
+				Console::Write("æ­¤åœ°é»å·²æ˜¯äº”ç´šæˆ¿å­ï¼Œåˆ°é”åœŸåœ°ä¸Šé™ï¼Œç„¡æ³•å†è“‹æˆ¿å­ã€‚æ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—{0}å…ƒã€‚(æŒ‰ä¸‹ENTER) )", (int)plocaMon[pposition[*pround]] * 1.5);
+				showStore = showStore + "æ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—" + (int)plocaMon[pposition[*pround]] * 1.5 + "å…ƒã€‚\n";
 				pmoney[*pround] += (int)plocaMon[pposition[*pround]] * 1.5;
 				enter = Console::ReadLine();
 			}
-			//¶R©Ğ¤l
+			//è²·æˆ¿å­
 			else {
 				if (phouses[pposition[*pround]] == 0)
-					Console::Write("ª±®a{0}¦³²{ª÷{1}¤¸¡A½Ğ°İ­nÁÊ¶R©Ğ¤l¶Ü? ¦¹¦a©Ğ¤l­n{2}¤¸¡C(y/n)", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
+					Console::Write("ç©å®¶{0}æœ‰ç¾é‡‘{1}å…ƒï¼Œè«‹å•è¦è³¼è²·æˆ¿å­å—? æ­¤åœ°æˆ¿å­è¦{2}å…ƒã€‚(y/n)", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
 				else {
-					Console::Write("§A¦b¦¹¦a¤w¸g¦³{0}¯Å©Ğ¤l¡C¦¬¨ú¯²ª÷¡AÀò±o{1}¤¸¡C", phouses[pposition[*pround]], (int)plocaMon[pposition[*pround]] / 2 * 1.5);
+					Console::Write("ä½ åœ¨æ­¤åœ°å·²ç¶“æœ‰{0}ç´šæˆ¿å­ã€‚æ”¶å–ç§Ÿé‡‘ï¼Œç²å¾—{1}å…ƒã€‚", phouses[pposition[*pround]], (int)plocaMon[pposition[*pround]] / 2 * 1.5);
 					pmoney[*pround] += (int)plocaMon[pposition[*pround]] / 2 * 1.5;
-					Console::Write("ª±®a{0}¦³²{ª÷{1}¤¸¡A½Ğ°İ­n¤É¯Å©Ğ¤l¶Ü?»İ­nªá¶O{2}¤¸ (y/n): ", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
+					Console::Write("ç©å®¶{0}æœ‰ç¾é‡‘{1}å…ƒï¼Œè«‹å•è¦å‡ç´šæˆ¿å­å—?éœ€è¦èŠ±è²»{2}å…ƒ (y/n): ", playerName[*pround], pmoney[*pround], plocaMon[pposition[*pround]]);
 				}
 				do {
 					String^ YesNo = Console::ReadLine();
 					if (String::Compare(YesNo, "y") == 0) {
 						pmoney[*pround] -= plocaMon[pposition[*pround]];
 						phouses[pposition[*pround]] += 1;
-						plocaMon[pposition[*pround]] *= 2;
-						Console::Write("¤É¯Å¤F[ {0} ]ªº©Ğ¤l¡C ¦¹¦aÂI¬O {1} ¯Å©Ğ«Î¡C(«ö¤UENTER)", plocations[pposition[*pround]], phouses[pposition[*pround]]);
-						showStore = showStore + "¤É¯Å¤F" + plocations[pposition[*pround]] + "ªº©Ğ¤l¡C ¦¹¦aÂI¬O" + phouses[pposition[*pround]] + "¯Å©Ğ«Î¡C\n";
+						if(phouses[pposition[*pround]] < 5)
+							plocaMon[pposition[*pround]] *= 2;
+						Console::Write("å‡ç´šäº†[ {0} ]çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯ {1} ç´šæˆ¿å±‹ã€‚(æŒ‰ä¸‹ENTER)", plocations[pposition[*pround]], phouses[pposition[*pround]]);
+						showStore = showStore + "å‡ç´šäº†" + plocations[pposition[*pround]] + "çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯" + phouses[pposition[*pround]] + "ç´šæˆ¿å±‹ã€‚\n";
 						owner[pposition[*pround]] = (*pround) + 1;
 						enter = Console::ReadLine();
 						break;
 					}
 					else if (String::Compare(YesNo, "n") == 0) {
-						Console::Write("©Úµ´ÁÊ¶R©Ğ¤l¡A¹CÀ¸Ä~Äò¡C(«ö¤UENTER)");
-						showStore = showStore + "©Úµ´ÁÊ¶R©Ğ¤l¡C\n"; 
+						Console::Write("æ‹’çµ•è³¼è²·æˆ¿å­ï¼ŒéŠæˆ²ç¹¼çºŒã€‚(æŒ‰ä¸‹ENTER)");
+						showStore = showStore + "æ‹’çµ•è³¼è²·æˆ¿å­ã€‚\n"; 
 						enter = Console::ReadLine();
 						break;
 					}
 					else
-						Console::Write("¿é¤J¿ù»~¡A½Ğ­«·s¿é¤J(y/n):");
+						Console::Write("è¼¸å…¥éŒ¯èª¤ï¼Œè«‹é‡æ–°è¼¸å…¥(y/n):");
 				} while (true);
 			}
 		}
-		//½ò¤W§O¤H®aªº¤g¦a
+		//è¸©ä¸Šåˆ¥äººå®¶çš„åœŸåœ°
 		else if(owner[pposition[*pround]] != (*pround) + 1 && owner[pposition[*pround]] > 0){
 			if (alive[owner[pposition[*pround]] - 1] == 0) {
-				Console::Write("§A¯¸¤W¤F{0}¸¹ª±®aªº¤g¦a¡A»İ­n¥I¥L{1}¤¸¹L¸ô¶O¡C(«ö¤UENTER)",owner[pposition[*pround]] , (int)plocaMon[pposition[*pround]]*0.8);
-				showStore = showStore + "¯¸¤W¤F" + owner[pposition[*pround]] + "¸¹ª±®aªº¤g¦a¡A»İ­n¥I¥L" + (int)plocaMon[pposition[*pround]]*0.8 + "¤¸¹L¸ô¶O¡C\n";
-				pmoney[*pround] -= (int)plocaMon[pposition[*pround]] * 0.8;
-				pmoney[owner[pposition[*pround]]-1] += (int)plocaMon[pposition[*pround]] * 0.8;
+				Console::Write("ä½ ç«™ä¸Šäº†{0}è™Ÿç©å®¶çš„åœŸåœ°ï¼Œéœ€è¦ä»˜ä»–{1}å…ƒéè·¯è²»ã€‚(æŒ‰ä¸‹ENTER)",owner[pposition[*pround]] , (int)plocaMon[pposition[*pround]]*0.5);
+				showStore = showStore + "ç«™ä¸Šäº†" + owner[pposition[*pround]] + "è™Ÿç©å®¶çš„åœŸåœ°ï¼Œéœ€è¦ä»˜ä»–" + (int)plocaMon[pposition[*pround]]*0.5 + "å…ƒéè·¯è²»ã€‚\n";
+				pmoney[*pround] -= (int)plocaMon[pposition[*pround]] * 0.5;
+				pmoney[owner[pposition[*pround]]-1] += (int)plocaMon[pposition[*pround]] * 0.5;
 				enter = Console::ReadLine();
 			}
 			else {
-				Console::Write("¾Ö¦³³o¶ô¦aªºª±®a¤w¸g¦º¤`¤F¡A³oÃä¬O¤@¤ù¥Rº¡©Çª«ªº¯î¦a¡AÃº¥æ{0}¤¸¹L¸ô¶O¤~¥i¥H¥­¦w³q¹L¡C(«ö¤UENTER)", (int)plocaMon[pposition[*pround]] * 0.4);
-				showStore = showStore + "Ãº¥æ" + (int)plocaMon[pposition[*pround]] * 0.4 + "¤¸¹L¸ô¶O¤~¥i¥H¥­¦w³q¹L";
-				pmoney[*pround] -= (int)plocaMon[pposition[*pround]] * 0.4;
-				enter = Console::ReadLine();
+				Console::Write("æ“æœ‰é€™å¡Šåœ°çš„ç©å®¶å·²ç¶“æ­»äº¡äº†ï¼Œé€™é‚Šæ˜¯ä¸€ç‰‡å……æ»¿æ€ªç‰©çš„è’åœ°ï¼Œ{0}å…ƒå¯ä»¥æ¥ç®¡ä»–çš„åœŸåœ°(y/n): ", (int)plocaMon[pposition[*pround]]/2);
+				do {
+					String^ YesNo = Console::ReadLine();
+					if (String::Compare(YesNo, "y") == 0) {
+						pmoney[*pround] -= (plocaMon[pposition[*pround]] / 2);
+						Console::Write("æ¥ç®¡äº†[ {0} ]çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯ {1} ç´šæˆ¿å±‹ã€‚(æŒ‰ä¸‹ENTER)", plocations[pposition[*pround]], phouses[pposition[*pround]]);
+						showStore = showStore + "æ¥ç®¡äº†" + plocations[pposition[*pround]] + "çš„æˆ¿å­ã€‚ æ­¤åœ°é»æ˜¯" + phouses[pposition[*pround]] + "ç´šæˆ¿å±‹ã€‚\n";
+						owner[pposition[*pround]] = (*pround) + 1;
+						enter = Console::ReadLine();
+						break;
+					}
+					else if (String::Compare(YesNo, "n") == 0) {
+						Console::Write("æ‹’çµ•æ¥ç®¡æˆ¿å­ï¼ŒéŠæˆ²ç¹¼çºŒã€‚(æŒ‰ä¸‹ENTER)");
+						showStore = showStore + "æ‹’çµ•æ¥ç®¡æˆ¿å­ã€‚\n";
+						enter = Console::ReadLine();
+						break;
+					}
+					else
+						Console::Write("è¼¸å…¥éŒ¯èª¤ï¼Œè«‹é‡æ–°è¼¸å…¥(y/n):");
+				} while (true);
 			}
 		}
 	}
 		
-	//¯}²£
+	//ç ´ç”¢
 	if (pmoney[*pround] <= 0) {
-		Console::Write("\n§A¯}²£¤F!!!!!!!!!°e§A¤@§â¤H¥Í­«¨Óºj¡A­n­«·s¶}©l¹CÀ¸¶Ü?(«ör­«·s¶}©l)");
+		Console::Write("\nä½ ç ´ç”¢äº†!!!!!!!!!é€ä½ ä¸€æŠŠäººç”Ÿé‡ä¾†æ§ï¼Œè¦é‡æ–°é–‹å§‹éŠæˆ²å—?(æŒ‰ré‡æ–°é–‹å§‹)");
 		do {
 			String^ YesNo = Console::ReadLine();
 			if (String::Compare(YesNo, "r") == 0) {
@@ -912,10 +1015,11 @@ void gameLoop(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ 
 				break;
 			}
 			else
-				Console::Write("¿é¤J¿ù»~¡A½Ğ­«·s¿é¤J:");
+				Console::Write("è¼¸å…¥éŒ¯èª¤ï¼Œè«‹é‡æ–°è¼¸å…¥:");
 		} while (1);
 	}
-	//¬°¤Fshow¦sÀÉ
+	//ç‚ºäº†showå­˜æª”
+	showStore = showStore + "ç©å®¶"+ playerName[*pround] +"æ“æœ‰" + pmoney[*pround] + "å…ƒã€‚\n";
 	StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt", true);
 	sw->WriteLine(showStore);
 	sw->Close();
@@ -925,86 +1029,93 @@ void gameLoop(int^ pdice, int^ preturn, array<String^>^ plocations, array<int>^ 
 
 int main(array<System::String ^> ^args)
 {
-	array< String^ >^ plocations;	//¦U¦a¦WºÙ
-	array<int>^ plocaMon = gcnew array<int>(30);	//¦U¦a»ù¿ú
-	array<int>^ phouses = gcnew array<int>(30);		//¦U¦a©Ğ¤l¼Æ¶q
-	array<int>^ owner = gcnew array<int>(30);		//¦U¦a©Ğ¤l¾Ö¦³ªÌ¡A0¥NªíµL¤H¾Ö¦³¡A1¥Nªí1¸¹ª±®a
-	array<int>^ pposition = gcnew array<int>(4);	//ª±®a­Ì¦U¦Û©Ò¦b¦ì¸m
-	array<String^>^ playerName = gcnew array<String^>(4);	//ª±®a¦WºÙ
-	array<int>^ pmoney= gcnew array<int>(4);		//ª±®a­Ìª÷¿ú¼Æ
-	array<int>^ pnoTax = gcnew array<int>(4);		//¦Uª±®a¾Ö¦³ªº°kµ|¥d
-	array<int>^ alive = gcnew array<int>(4);		//ª±®a­Ì¬O§_¬¡µÛ¡A1¥Nªí¦º¤`
-	String^ showStore;			//Àx¦stextÀÉµ¹show¥Î
-	int^ pdice = gcnew int;		//»ë¤lÂI¼Æ
-	int^ preturn = gcnew int;	//­«·s¶}©l
-	int^ pround = gcnew int;	//¥Ø«e½ü¨ìª±®a
-	int^ people = gcnew int;	//¹Cª±¤H¼Æ
+	array< String^ >^ plocations;	//å„åœ°åç¨±
+	array<int>^ plocaMon = gcnew array<int>(30);	//å„åœ°åƒ¹éŒ¢
+	array<int>^ phouses = gcnew array<int>(30);		//å„åœ°æˆ¿å­æ•¸é‡
+	array<int>^ owner = gcnew array<int>(30);		//å„åœ°æˆ¿å­æ“æœ‰è€…ï¼Œ0ä»£è¡¨ç„¡äººæ“æœ‰ï¼Œ1ä»£è¡¨1è™Ÿç©å®¶
+	array<int>^ pposition = gcnew array<int>(4);	//ç©å®¶å€‘å„è‡ªæ‰€åœ¨ä½ç½®
+	array<String^>^ playerName = gcnew array<String^>(4);	//ç©å®¶åç¨±
+	array<int>^ pmoney= gcnew array<int>(4);		//ç©å®¶å€‘é‡‘éŒ¢æ•¸
+	array<int>^ pnoTax = gcnew array<int>(4);		//å„ç©å®¶æ“æœ‰çš„é€ƒç¨…å¡
+	array<int>^ alive = gcnew array<int>(4);		//ç©å®¶å€‘æ˜¯å¦æ´»è‘—ï¼Œ1ä»£è¡¨æ­»äº¡
+	String^ showStore;			//å„²å­˜textæª”çµ¦showç”¨
+	int^ pdice = gcnew int;		//éª°å­é»æ•¸
+	int^ preturn = gcnew int;	//é‡æ–°é–‹å§‹
+	int^ pround = gcnew int;	//ç›®å‰è¼ªåˆ°ç©å®¶
+	int^ people = gcnew int;	//éŠç©äººæ•¸
 
-	if (File::Exists("ShowEvent.txt"))
-		System::IO::File::Delete("ShowEvent.txt");
-
-	plocations = gcnew array<String^>(30){ "Start ->", "Hobbiton", "EchoIsles", "Citadel", "Midgar", "Gotham", "CHANCE", "Hideout",
+	plocations = gcnew array<String^>(30){ "Start  ->", "Hobbiton", "EchoIsles", "Citadel", "Midgar", "Gotham", "CHANCE", "Hideout",
 	"SouthPark", "Waterdeep", "-TAX-", "Silent Hill", "Racoon City", "Los Santos", "District X", "Snowdin", "Grillby's", "COMMUNITY", "Skyrim",
 	"Helheim", "Outland", "Ravenholm", "Asgard", "Detroit", "Alfheim", "-TAX-", "Highway 17", "Gravity Falls", "Black Beach", "Sea of light"};
-	showStore = "¹CÀ¸¶}©l\n";
+	showStore = "éŠæˆ²é–‹å§‹\n";
 
-	//¹CÀ¸°j°é
+	//éŠæˆ²è¿´åœˆ
 	while (1) {
+		if (File::Exists("ShowEvent.txt"))
+			System::IO::File::Delete("ShowEvent.txt");
 		initialLocation(plocaMon, phouses, pnoTax, pround, alive, owner, pposition);
 		startNewGame();
-		//¿é¤J¹CÀ¸¤H¼Æ¡A¦³°µ«D¾ã¼Æ¨¾§b
+		//è¼¸å…¥éŠæˆ²äººæ•¸ï¼Œæœ‰åšéæ•´æ•¸é˜²å‘†
 		do {
-			Console::Write("½Ğ¿é¤J¹Cª±¤H¼Æ(2¨ì4¤H): ");
+			Console::Write("è«‹è¼¸å…¥éŠç©äººæ•¸(2åˆ°4äºº)æˆ–è¼¸å…¥loadè®€å–éŠæˆ²ç´€éŒ„æª”: ");
 			String^ inputString = Console::ReadLine();
 			if (String::Compare(inputString, "2") == 0 || String::Compare(inputString, "3") == 0 || String::Compare(inputString, "4") == 0) {
 				*people = Convert::ToInt32(inputString);
-				Console::Write("¹Cª±¤H¼Æ¬°{0}¤H¡A§A³Q«ü¬£¬°ª±®a¤@¸¹¡A¨ä¾l¬°¹q¸£ª±®a¡C ", *people);
-				showStore = showStore + "¹Cª±¤H¼Æ¬°" + *people + "¤H¡A§A³Q«ü¬£¬°ª±®a¤@¸¹¡A¨ä¾l¬°¹q¸£ª±®a¡C";
+				Console::Write("éŠç©äººæ•¸ç‚º{0}äººï¼Œä½ è¢«æŒ‡æ´¾ç‚ºç©å®¶ä¸€è™Ÿï¼Œå…¶é¤˜ç‚ºé›»è…¦ç©å®¶ã€‚ ", *people);
+				showStore = showStore + "éŠç©äººæ•¸ç‚º" + *people + "äººï¼Œä½ è¢«æŒ‡æ´¾ç‚ºç©å®¶ä¸€è™Ÿï¼Œå…¶é¤˜ç‚ºé›»è…¦ç©å®¶ã€‚";
+
+				//è¼¸å…¥ç©å®¶åå­—å’Œèµ·å§‹é‡‘é¡
+				Console::Write("è¦ªæ„›çš„å†’éšªè€…ï¼Œä½ çš„è‹±æ–‡åå­—æ˜¯: ");
+				playerName[0] = Console::ReadLine();
+				do {
+					Console::Write("è«‹è¼¸å…¥èµ·å§‹é‡‘é¡(å»ºè­°1500å…ƒï¼Œä¸è¦è¼¸å…¥è² æ•¸æˆ–æ˜¯è¶…éä¸€ç™¾è¬): ");
+					pmoney[0] = Int32::Parse(Console::ReadLine());
+				} while (pmoney[0] <= 0 || pmoney[0] > 1000000);
+
+				//è¨­å®šé›»è…¦ç©å®¶
+				playerName[1] = "B-Rabbit";
+				int^ tempMon = gcnew int;
+				*tempMon = pmoney[0];
+				pmoney[1] = *tempMon;
+				Console::Write("\n  ç©å®¶ä¸€è™Ÿåå­—ç‚º{0}ï¼Œé‡‘é¡ç‚º{1}ã€‚\n", playerName[0], pmoney[0]);
+				Console::Write("  é›»è…¦ç©å®¶äºŒè™Ÿåå­—ç‚ºB-Rabbitï¼Œé‡‘é¡ç‚º{0}ã€‚\n", pmoney[1]);
+				showStore = showStore + "ç©å®¶ä¸€è™Ÿåå­—ç‚º" + playerName[0] + "ï¼Œé‡‘é¡ç‚º" + pmoney[0] + "ã€‚ ";
+				showStore = showStore + "é›»è…¦ç©å®¶äºŒè™Ÿåå­—ç‚ºB-Rabbitï¼Œé‡‘é¡ç‚º" + pmoney[1] + "ã€‚ ";
+
+				if (*people > 2) {
+					playerName[2] = "ConnorRK800";
+					tempMon = gcnew int;
+					*tempMon = pmoney[1];
+					pmoney[2] = *tempMon;
+					Console::Write("  é›»è…¦ç©å®¶ä¸‰è™Ÿåå­—ç‚ºConnorRK800ï¼Œé‡‘é¡ç‚º{0}ã€‚\n", pmoney[2]);
+					showStore = showStore + "é›»è…¦ç©å®¶ä¸‰è™Ÿåå­—ç‚ºConnorRK800ï¼Œé‡‘é¡ç‚º" + pmoney[2] + "ã€‚ ";
+				}
+				if (*people > 3) {
+					playerName[3] = "theodd1sout";
+					tempMon = gcnew int;
+					*tempMon = pmoney[1];
+					pmoney[3] = *tempMon;
+					Console::Write("  é›»è…¦ç©å®¶å››è™Ÿåå­—ç‚ºtheodd1soutï¼Œé‡‘é¡ç‚º{0}ã€‚\n", pmoney[3]);
+					showStore = showStore + "é›»è…¦ç©å®¶å››è™Ÿåå­—ç‚ºtheodd1soutï¼Œé‡‘é¡ç‚º" + pmoney[2] + "ã€‚ ";
+				}
+				//ç‚ºäº†showå­˜æª”
+				StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt", true);
+				sw->WriteLine(showStore);
+				sw->Close();
+				showStore = nullptr;
+
+				break;
+			}
+			else if (String::Compare(inputString, "load") == 0 && File::Exists("Save.txt")){
+				loadtxt(playerName, people, pmoney, pnoTax, owner, pposition, phouses, plocaMon, alive);
+				StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt", true);
+				sw->WriteLine("è®€å–èˆŠæª”......");
+				sw->Close();
 				break;
 			}
 			else
-				Console::Write("¿é¤J¿ù»~¡C");
+				Console::Write("è¼¸å…¥éŒ¯èª¤æˆ–saveæª”æ¡ˆä¸å­˜åœ¨ã€‚");
 		} while (true);
-
-		//¿é¤Jª±®a¦W¦r©M°_©lª÷ÃB
-		Console::Write("¿Ë·Rªº«_ÀIªÌ¡A§Aªº­^¤å¦W¦r¬O: ");
-		playerName[0] = Console::ReadLine();
-		do {
-			Console::Write("½Ğ¿é¤J°_©lª÷ÃB(«ØÄ³1000¤¸¡A¤£­n¿é¤J­t¼Æ©Î¬O¶W¹L¤@¦Ê¸U): ");
-			pmoney[0] = Int32::Parse(Console::ReadLine());
-		} while (pmoney[0] <= 0 || pmoney[0] > 1000000);
-
-		//³]©w¹q¸£ª±®a
-		playerName[1] = "B-Rabbit";
-		int^ tempMon = gcnew int;
-		*tempMon = pmoney[0];
-		pmoney[1] = *tempMon;
-		Console::Write("\n  ª±®a¤@¸¹¦W¦r¬°{0}¡Aª÷ÃB¬°{1}¡C\n", playerName[0], pmoney[0]);
-		Console::Write("  ¹q¸£ª±®a¤G¸¹¦W¦r¬°B-Rabbit¡Aª÷ÃB¬°{0}¡C\n", pmoney[1]);
-		showStore = showStore + "ª±®a¤@¸¹¦W¦r¬°" + playerName[0] + "¡Aª÷ÃB¬°" + pmoney[0] + "¡C ";
-		showStore = showStore + "¹q¸£ª±®a¤G¸¹¦W¦r¬°B-Rabbit¡Aª÷ÃB¬°" + pmoney[1] + "¡C ";
-
-		if (*people > 2) {
-			playerName[2] = "ConnorRK800";
-			tempMon = gcnew int;
-			*tempMon = pmoney[1];
-			pmoney[2] = *tempMon;
-			Console::Write("  ¹q¸£ª±®a¤T¸¹¦W¦r¬°ConnorRK800¡Aª÷ÃB¬°{0}¡C\n", pmoney[2]);
-			showStore = showStore + "¹q¸£ª±®a¤T¸¹¦W¦r¬°ConnorRK800¡Aª÷ÃB¬°" + pmoney[2] + "¡C ";
-		}
-		if (*people > 3) {
-			playerName[3] = "theodd1sout";
-			tempMon = gcnew int;
-			*tempMon = pmoney[1];
-			pmoney[3] = *tempMon;
-			Console::Write("  ¹q¸£ª±®a¥|¸¹¦W¦r¬°theodd1sout¡Aª÷ÃB¬°{0}¡C\n", pmoney[3]);
-			showStore = showStore + "¹q¸£ª±®a¥|¸¹¦W¦r¬°theodd1sout¡Aª÷ÃB¬°" + pmoney[2] + "¡C ";
-		}
-		//¬°¤Fshow¦sÀÉ
-		StreamWriter^ sw = gcnew StreamWriter("ShowEvent.txt",true);
-		sw->WriteLine(showStore);
-		sw->Close();
-		showStore = nullptr;
 
 		do {
 			if (alive[*pround] != 0) {
@@ -1014,7 +1125,7 @@ int main(array<System::String ^> ^args)
 				continue;
 			}
 			printMap(plocations, phouses, plocaMon, owner, pposition, people, alive);
-			Console::Write("²{¦b¬Oª±®a{0}ªº¦^¦X¡C¾Ö¦³{1}¤¸¡C\n", playerName[*pround], pmoney[*pround]);
+			Console::Write("ç¾åœ¨æ˜¯ç©å®¶{0}çš„å›åˆã€‚æ“æœ‰{1}å…ƒã€‚\n", playerName[*pround], pmoney[*pround]);
 			if (*pround == 0)
 				gameLoop(pdice, preturn, plocations, phouses, plocaMon, alive, owner, pposition, people, pround, pmoney, pnoTax, playerName, showStore);
 			else{
